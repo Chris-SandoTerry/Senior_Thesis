@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D5802512B1525BC00CD9BFD /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5802502B1525BB00CD9BFD /* RegisterView.swift */; };
+		0D5802532B1525C900CD9BFD /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5802522B1525C900CD9BFD /* RegisterModel.swift */; };
+		0D5802552B1525DB00CD9BFD /* ProfessorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5802542B1525DB00CD9BFD /* ProfessorView.swift */; };
+		0D5802572B1525E100CD9BFD /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5802562B1525E100CD9BFD /* StudentView.swift */; };
+		0D5802592B1525FB00CD9BFD /* Universities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5802582B1525FB00CD9BFD /* Universities.swift */; };
 		0DF0ABC72AD99D48005118D6 /* Senior_ThesisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABC62AD99D48005118D6 /* Senior_ThesisApp.swift */; };
 		0DF0ABC92AD99D48005118D6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABC82AD99D48005118D6 /* ContentView.swift */; };
 		0DF0ABCB2AD99D49005118D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DF0ABCA2AD99D49005118D6 /* Assets.xcassets */; };
@@ -41,6 +46,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D5802502B1525BB00CD9BFD /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		0D5802522B1525C900CD9BFD /* RegisterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
+		0D5802542B1525DB00CD9BFD /* ProfessorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorView.swift; sourceTree = "<group>"; };
+		0D5802562B1525E100CD9BFD /* StudentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
+		0D5802582B1525FB00CD9BFD /* Universities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Universities.swift; sourceTree = "<group>"; };
 		0DF0ABC32AD99D48005118D6 /* Senior_Thesis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Senior_Thesis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF0ABC62AD99D48005118D6 /* Senior_ThesisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Senior_ThesisApp.swift; sourceTree = "<group>"; };
 		0DF0ABC82AD99D48005118D6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -110,7 +120,12 @@
 			children = (
 				0DF0ABC62AD99D48005118D6 /* Senior_ThesisApp.swift */,
 				0DF0ABC82AD99D48005118D6 /* ContentView.swift */,
+				0D5802542B1525DB00CD9BFD /* ProfessorView.swift */,
+				0D5802562B1525E100CD9BFD /* StudentView.swift */,
+				0D5802522B1525C900CD9BFD /* RegisterModel.swift */,
 				0DF0ABFC2AD9A15C005118D6 /* PageView.swift */,
+				0D5802502B1525BB00CD9BFD /* RegisterView.swift */,
+				0D5802582B1525FB00CD9BFD /* Universities.swift */,
 				0DF0ABFA2AD9A12F005118D6 /* PageModel.swift */,
 				0DF0ABF02AD99EC0005118D6 /* LoginView.swift */,
 				0DF0ABF42AD99F44005118D6 /* ProfileView.swift */,
@@ -279,14 +294,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DF0ABFB2AD9A12F005118D6 /* PageModel.swift in Sources */,
+				0D5802512B1525BC00CD9BFD /* RegisterView.swift in Sources */,
 				0DF0ABF32AD99EF1005118D6 /* SignUpView.swift in Sources */,
 				0DF0ABF92AD9A013005118D6 /* CameraView.swift in Sources */,
+				0D5802552B1525DB00CD9BFD /* ProfessorView.swift in Sources */,
 				0DF0ABF12AD99EC0005118D6 /* LoginView.swift in Sources */,
 				0DF0ABF72AD99FF0005118D6 /* CameraModel.swift in Sources */,
+				0D5802572B1525E100CD9BFD /* StudentView.swift in Sources */,
+				0D5802532B1525C900CD9BFD /* RegisterModel.swift in Sources */,
 				0DF0ABF52AD99F44005118D6 /* ProfileView.swift in Sources */,
 				0DF0ABC92AD99D48005118D6 /* ContentView.swift in Sources */,
 				0DF0ABFD2AD9A15C005118D6 /* PageView.swift in Sources */,
 				0DF0ABC72AD99D48005118D6 /* Senior_ThesisApp.swift in Sources */,
+				0D5802592B1525FB00CD9BFD /* Universities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
