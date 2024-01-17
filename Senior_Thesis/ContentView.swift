@@ -5,14 +5,12 @@
 //  Created by Christopher Sandoval Terry on 10/13/23.
 //
 
-//
-//  ContentView.swift
-//  Software Project New Part
-//
-//  Created by Christopher Sandoval Terry on 4/18/23.
+//Start on  registar tab then link it to profile
+
 import SwiftUI
 
-struct ContentView: View {
+struct ContentView: View 
+{
     @State private var pageIndex = 0
     @State private var showloginscreen = false
     private let pages:[Page] = Page.samplepages

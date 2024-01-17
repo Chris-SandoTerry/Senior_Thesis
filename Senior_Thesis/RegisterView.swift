@@ -55,8 +55,9 @@ struct StudentScene: View {
     var body: some View {
         List(uni, id: \.self) { university in
             NavigationLink(destination: Text(university)) {
-                Image(systemName: "cap")
+                Image(systemName: "star.fill")
                 Text(university)
+                
             }
             .padding()
         }

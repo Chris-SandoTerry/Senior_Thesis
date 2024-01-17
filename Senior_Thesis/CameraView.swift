@@ -35,56 +35,36 @@ struct CameraViewDemo: View {
                 Spacer()
 
                 HStack{
-                                    Spacer()
+                
+                Spacer()
 
-                                    Button(action: {
+            
 
-                                    }, label: {
-                                        ZStack{
-                                            Capsule()
-                                                .frame(width: 80, height: 40)
-                                            Text("Save")
-                                                .foregroundColor(Color.white)
-                                                .font(.title3)
-                                        }
-                                    })
-                                    .disabled(!photoTaken)
+                Spacer()
 
-                                    Spacer()
+                Button(action:
+                {
+                if !UIImagePickerController.isSourceTypeAvailable(.camera) {
+                    isShowingAlert = true
+                    } else {
+                    isPresentingImagePicker.toggle()
+                    photoTaken = true
+                    }
+                }, label: {
+                Image(systemName: "camera")
+                .font(.largeTitle)
+                .padding()
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .clipShape(Circle())
+                })
 
-                                    Button(action: {
-                                        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
-                                            isShowingAlert = true
-                                        } else {
-                                            isPresentingImagePicker.toggle()
-                                            photoTaken = true
-                                        }
-                                    }, label: {
-                                        Image(systemName: "camera")
-                                            .font(.largeTitle)
-                                            .padding()
-                                            .background(Color.blue)
-                                            .foregroundColor(.white)
-                                            .clipShape(Circle())
-                                    })
+                Spacer()
 
-                                    Spacer()
+        
 
-                                    Button(action: {
-
-                                    }, label: {
-                                        ZStack{
-                                            Capsule()
-                                                .frame(width: 80, height: 40)
-                                            Text("Post")
-                                                .foregroundColor(Color.white)
-                                                .font(.title3)
-                                        }
-                                    })
-                                    .disabled(!photoTaken)
-
-                                    Spacer()
-                                }
+                Spacer()
+                    }
             }
             .navigationTitle("Camera View")
             .sheet(isPresented: $isPresentingImagePicker, onDismiss: loadImage) {

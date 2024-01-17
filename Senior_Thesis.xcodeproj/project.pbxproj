@@ -12,6 +12,8 @@
 		0D5802552B1525DB00CD9BFD /* ProfessorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5802542B1525DB00CD9BFD /* ProfessorView.swift */; };
 		0D5802572B1525E100CD9BFD /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5802562B1525E100CD9BFD /* StudentView.swift */; };
 		0D5802592B1525FB00CD9BFD /* Universities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5802582B1525FB00CD9BFD /* Universities.swift */; };
+		0D59A7842B5893B30044F763 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D59A7832B5893B30044F763 /* Classes.swift */; };
+		0D59A7862B5895480044F763 /* ClassesLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D59A7852B5895480044F763 /* ClassesLogic.swift */; };
 		0DF0ABC72AD99D48005118D6 /* Senior_ThesisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABC62AD99D48005118D6 /* Senior_ThesisApp.swift */; };
 		0DF0ABC92AD99D48005118D6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABC82AD99D48005118D6 /* ContentView.swift */; };
 		0DF0ABCB2AD99D49005118D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DF0ABCA2AD99D49005118D6 /* Assets.xcassets */; };
@@ -51,6 +53,8 @@
 		0D5802542B1525DB00CD9BFD /* ProfessorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorView.swift; sourceTree = "<group>"; };
 		0D5802562B1525E100CD9BFD /* StudentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
 		0D5802582B1525FB00CD9BFD /* Universities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Universities.swift; sourceTree = "<group>"; };
+		0D59A7832B5893B30044F763 /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
+		0D59A7852B5895480044F763 /* ClassesLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesLogic.swift; sourceTree = "<group>"; };
 		0DF0ABC32AD99D48005118D6 /* Senior_Thesis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Senior_Thesis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF0ABC62AD99D48005118D6 /* Senior_ThesisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Senior_ThesisApp.swift; sourceTree = "<group>"; };
 		0DF0ABC82AD99D48005118D6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 				0DF0ABFA2AD9A12F005118D6 /* PageModel.swift */,
 				0DF0ABF02AD99EC0005118D6 /* LoginView.swift */,
 				0DF0ABF42AD99F44005118D6 /* ProfileView.swift */,
+				0D59A7852B5895480044F763 /* ClassesLogic.swift */,
+				0D59A7832B5893B30044F763 /* Classes.swift */,
 				0DF0ABF62AD99FF0005118D6 /* CameraModel.swift */,
 				0DF0ABF82AD9A013005118D6 /* CameraView.swift */,
 				0DF0ABF22AD99EF1005118D6 /* SignUpView.swift */,
@@ -301,6 +307,8 @@
 				0DF0ABF12AD99EC0005118D6 /* LoginView.swift in Sources */,
 				0DF0ABF72AD99FF0005118D6 /* CameraModel.swift in Sources */,
 				0D5802572B1525E100CD9BFD /* StudentView.swift in Sources */,
+				0D59A7842B5893B30044F763 /* Classes.swift in Sources */,
+				0D59A7862B5895480044F763 /* ClassesLogic.swift in Sources */,
 				0D5802532B1525C900CD9BFD /* RegisterModel.swift in Sources */,
 				0DF0ABF52AD99F44005118D6 /* ProfileView.swift in Sources */,
 				0DF0ABC92AD99D48005118D6 /* ContentView.swift in Sources */,

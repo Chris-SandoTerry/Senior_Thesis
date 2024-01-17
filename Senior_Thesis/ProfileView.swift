@@ -18,7 +18,7 @@ struct ProfileView: View {
         TabView(selection: $selection) {
             NavigationView {
                 VStack(spacing: 20) {
-                    Image("Unknown-2")
+                    Image("SeniorPoject")
                         .resizable()
                         .frame(width: 100, height: 100)
                         .clipShape(Circle())
@@ -27,49 +27,14 @@ struct ProfileView: View {
                         .font(.title)
                         .bold()
                     
-                    Text("Software Developer")
+                    Text("Senior")
                         .font(.headline)
                         .foregroundColor(.gray)
                     
-                    HStack(spacing: 30) {
-                        VStack {
-                            Text("0")
-                                .font(.title)
-                                .bold()
-                            Text("Posts")
-                                .font(.headline)
-                                .foregroundColor(.gray)
-                        }
-                        VStack {
-                            Text("3.7K")
-                                .font(.title)
-                                .bold()
-                            Text("Followers")
-                                .font(.headline)
-                                .foregroundColor(.gray)
-                        }
-                        VStack {
-                            Text("1.5K")
-                                .font(.title)
-                                .bold()
-                            Text("Following")
-                                .font(.headline)
-                                .foregroundColor(.gray)
-                        }
-                    }
                     
                     Divider()
                     
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("About Me")
-                            .font(.headline)
-                            .bold()
-                        Text("I'm a software developer from Kenosha, Wisconsin. I enjoy coding.")
-                            .font(.body)
-                            .foregroundColor(.gray)
-                    }
-                    .padding(.vertical)
-                    
+
                     Spacer()
                     
                     Button(action: {
@@ -98,13 +63,22 @@ struct ProfileView: View {
                 Text("Profile")
             }
             .tag(0)
+            
+            Classes()
+                .tabItem {
+                    Image(systemName: "folder.fill")
+                    Text("Classes")
+                }
+                .tag(1)
 
             CameraViewDemo()
                 .tabItem {
                     Image(systemName: "camera.fill")
                     Text("Camera")
                 }
-                .tag(1)
+                .tag(2)
+            
+            
         }
     }
 }
