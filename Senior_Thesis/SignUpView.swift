@@ -9,6 +9,7 @@ struct SignUpView: View {
     @State private var newUserName = ""
     @State private var newPassword = ""
     @State private var showingLoginScreen = false
+    @State private var showingRegisterUni = false
     
     var body: some View {
         NavigationView {
@@ -49,7 +50,7 @@ struct SignUpView: View {
                         .frame(height: 40)
                     
                     Button(action: {
-                    showingLoginScreen = true
+                    showingRegisterUni = true
                     }) {
                         Text("Create Account")
                         .padding()
@@ -76,6 +77,11 @@ struct SignUpView: View {
             .navigationBarHidden(true)
             .background(
                 NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true), isActive: $showingLoginScreen) {
+                    EmptyView()
+                }
+            )
+            .background(
+                NavigationLink(destination: RegisterView().navigationBarBackButtonHidden(true), isActive: $showingRegisterUni) {
                     EmptyView()
                 }
             )

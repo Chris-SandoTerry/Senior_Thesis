@@ -50,12 +50,12 @@ struct ContentView: View
                                     Button("Sign up") {
                                         showloginscreen = true
                                     }
-                                    .foregroundColor(Color("blue"))
+                                    .foregroundColor(Color.blue)
                                     .font(.title3)
 
                             } else {
                                 Button("Next", action: incrementPage)
-                                    .foregroundColor(Color("blue"))
+                                    .foregroundColor(Color.blue)
                                     .font(.title3)
                             }
                             Spacer()

@@ -8,4 +8,4 @@
 import Foundation
 
 let unilist =
-    ["Carthage",]
+    ["Carthage","University of Texas","Augustana"]

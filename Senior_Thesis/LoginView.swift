@@ -13,7 +13,7 @@ struct LoginView: View {
     @State private var showingLoginscreen = false
     @State private var showingsignupscreen = false
     @State private var showAlert = false
-    @State private var loggedIn = false // new state variable for tracking login status
+    @State private var loggedIn = false 
     
     var body: some View {
         NavigationView {

@@ -8,10 +8,8 @@ import SwiftUI
 import PhotosUI
 import AVFoundation
 import CoreLocation
-
-
 import SwiftUI
-import CoreLocation
+
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
     static let shared = LocationManager()

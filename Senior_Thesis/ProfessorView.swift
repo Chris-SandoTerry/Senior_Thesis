@@ -6,3 +6,22 @@
 //
 
 import Foundation
+import SwiftUI
+
+struct ProfessorScene: View 
+{
+    let uni: [String]
+
+    var body: some View 
+    {
+        List(uni, id: \.self) { university in
+            NavigationLink(destination: ProfessorProfile().navigationBarBackButtonHidden(true)) 
+            {
+                Image(systemName: "star.fill")
+                Text(university)
+            }
+            .padding()
+        }
+        .navigationTitle("Universities")
+    }
+}
