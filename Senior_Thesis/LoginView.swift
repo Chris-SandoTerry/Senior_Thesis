@@ -108,13 +108,17 @@ struct LoginView: View {
                     Alert(title: Text("Invalid Credentials"), message: Text("Please check your username and password and try again."), dismissButton: .default(Text("OK")))
                 }
             }
-             .navigationBarHidden(true)
-             .background( NavigationLink(destination: SignUpView().navigationBarBackButtonHidden(true),
-                               isActive: $showingsignupscreen)
-                {
-                    EmptyView()
-                }
+            .navigationBarHidden(true)
+            .background(
+                NavigationLink(
+                    destination: SignUpView().navigationBarBackButtonHidden(true),
+                    isActive: $showingsignupscreen,
+                    label: {
+                        EmptyView() // Provide an empty view as label
+                    }
+                )
             )
+
             .background(  NavigationLink(destination: ProfileView().navigationBarHidden(true),
                                isActive: $showingLoginscreen)
                 {

@@ -12,7 +12,6 @@ import SwiftUI
 struct StudentScene: View {
     let uni: [String]
     @State private var selectedUniversity: String?
-    let db = DBHelper()
     var body: some View {
         NavigationView {
             List(uni, id: \.self) { university in
