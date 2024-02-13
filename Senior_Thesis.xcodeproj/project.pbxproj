@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D1C2EBA2B7ADAA3005AADAB /* Senior_Thesis.db in Resources */ = {isa = PBXBuildFile; fileRef = 0D1C2EB92B7ADAA3005AADAB /* Senior_Thesis.db */; };
+		0D1C2EBC2B7ADAD0005AADAB /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1C2EBB2B7ADAD0005AADAB /* DBHelper.swift */; };
 		0D5802512B1525BC00CD9BFD /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5802502B1525BB00CD9BFD /* RegisterView.swift */; };
 		0D5802532B1525C900CD9BFD /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5802522B1525C900CD9BFD /* RegisterModel.swift */; };
 		0D5802552B1525DB00CD9BFD /* ProfessorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5802542B1525DB00CD9BFD /* ProfessorView.swift */; };
@@ -51,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D1C2EB92B7ADAA3005AADAB /* Senior_Thesis.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Senior_Thesis.db; sourceTree = "<group>"; };
+		0D1C2EBB2B7ADAD0005AADAB /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		0D5802502B1525BB00CD9BFD /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		0D5802522B1525C900CD9BFD /* RegisterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		0D5802542B1525DB00CD9BFD /* ProfessorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorView.swift; sourceTree = "<group>"; };
@@ -105,6 +109,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D1C2EBD2B7ADB03005AADAB /* DB_Work */ = {
+			isa = PBXGroup;
+			children = (
+				0D1C2EB92B7ADAA3005AADAB /* Senior_Thesis.db */,
+				0D1C2EBB2B7ADAD0005AADAB /* DBHelper.swift */,
+			);
+			path = DB_Work;
+			sourceTree = "<group>";
+		};
 		0DF0ABBA2AD99D48005118D6 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +141,7 @@
 		0DF0ABC52AD99D48005118D6 /* Senior_Thesis */ = {
 			isa = PBXGroup;
 			children = (
+				0D1C2EBD2B7ADB03005AADAB /* DB_Work */,
 				0DF0ABC62AD99D48005118D6 /* Senior_ThesisApp.swift */,
 				0DF0ABFC2AD9A15C005118D6 /* PageView.swift */,
 				0DF0ABFA2AD9A12F005118D6 /* PageModel.swift */,
@@ -282,6 +296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D1C2EBA2B7ADAA3005AADAB /* Senior_Thesis.db in Resources */,
 				0DF0ABCE2AD99D49005118D6 /* Preview Assets.xcassets in Resources */,
 				0DF0ABCB2AD99D49005118D6 /* Assets.xcassets in Resources */,
 			);
@@ -315,6 +330,7 @@
 				0DF0ABF92AD9A013005118D6 /* CameraView.swift in Sources */,
 				0D5802552B1525DB00CD9BFD /* ProfessorView.swift in Sources */,
 				0DF0ABF12AD99EC0005118D6 /* LoginView.swift in Sources */,
+				0D1C2EBC2B7ADAD0005AADAB /* DBHelper.swift in Sources */,
 				0DF0ABF72AD99FF0005118D6 /* CameraModel.swift in Sources */,
 				0D5802572B1525E100CD9BFD /* StudentView.swift in Sources */,
 				0D59A7842B5893B30044F763 /* Classes.swift in Sources */,
