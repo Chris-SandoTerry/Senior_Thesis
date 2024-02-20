@@ -42,7 +42,7 @@ struct ContentView: View
                                 .frame(height: 70)
 
                             if page == pages.last {
-                                NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true), isActive: $showloginscreen)
+                                NavigationLink(destination: SignIn().navigationBarBackButtonHidden(true), isActive: $showloginscreen)
                                 {
                                     EmptyView()
                                 }

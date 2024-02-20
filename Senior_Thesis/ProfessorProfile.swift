@@ -49,7 +49,7 @@ struct ProfessorProfile: View {
                     
                     }
                     
-                    NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true), isActive: $showloginscreen)
+                    NavigationLink(destination: SignIn().navigationBarBackButtonHidden(true), isActive: $showloginscreen)
                     {
                         EmptyView()
                     }

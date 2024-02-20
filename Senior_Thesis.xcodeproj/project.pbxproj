@@ -17,6 +17,8 @@
 		0D7851BA2B5AE1B6002CF44B /* ProfessorProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7851B92B5AE1B5002CF44B /* ProfessorProfile.swift */; };
 		0D7851BC2B5AE224002CF44B /* QrCodePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7851BB2B5AE224002CF44B /* QrCodePrompt.swift */; };
 		0D7851BE2B5AE7BF002CF44B /* QrCodeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7851BD2B5AE7BF002CF44B /* QrCodeImage.swift */; };
+		0D89B2C62B85132200933136 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0D89B2C52B85132200933136 /* FirebaseAuth */; };
+		0D89B2C92B851E4300933136 /* AuthentaticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D89B2C82B851E4300933136 /* AuthentaticationManager.swift */; };
 		0DAE54D02B84164500DC88EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0DAE54CF2B84164400DC88EF /* GoogleService-Info.plist */; };
 		0DAE54D32B84184400DC88EF /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0DAE54D22B84184400DC88EF /* FirebaseAnalytics */; };
 		0DAE54D52B84184400DC88EF /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0DAE54D42B84184400DC88EF /* FirebaseAnalyticsSwift */; };
@@ -30,8 +32,8 @@
 		0DF0ABD82AD99D49005118D6 /* Senior_ThesisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABD72AD99D49005118D6 /* Senior_ThesisTests.swift */; };
 		0DF0ABE22AD99D49005118D6 /* Senior_ThesisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABE12AD99D49005118D6 /* Senior_ThesisUITests.swift */; };
 		0DF0ABE42AD99D49005118D6 /* Senior_ThesisUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABE32AD99D49005118D6 /* Senior_ThesisUITestsLaunchTests.swift */; };
-		0DF0ABF12AD99EC0005118D6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABF02AD99EC0005118D6 /* LoginView.swift */; };
-		0DF0ABF32AD99EF1005118D6 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABF22AD99EF1005118D6 /* SignUpView.swift */; };
+		0DF0ABF12AD99EC0005118D6 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABF02AD99EC0005118D6 /* SignIn.swift */; };
+		0DF0ABF32AD99EF1005118D6 /* SignInEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABF22AD99EF1005118D6 /* SignInEmailView.swift */; };
 		0DF0ABF52AD99F44005118D6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABF42AD99F44005118D6 /* ProfileView.swift */; };
 		0DF0ABF72AD99FF0005118D6 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABF62AD99FF0005118D6 /* CameraModel.swift */; };
 		0DF0ABF92AD9A013005118D6 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABF82AD9A013005118D6 /* CameraView.swift */; };
@@ -67,6 +69,7 @@
 		0D7851B92B5AE1B5002CF44B /* ProfessorProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessorProfile.swift; sourceTree = "<group>"; };
 		0D7851BB2B5AE224002CF44B /* QrCodePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodePrompt.swift; sourceTree = "<group>"; };
 		0D7851BD2B5AE7BF002CF44B /* QrCodeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeImage.swift; sourceTree = "<group>"; };
+		0D89B2C82B851E4300933136 /* AuthentaticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentaticationManager.swift; sourceTree = "<group>"; };
 		0DAE54CF2B84164400DC88EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0DF0ABC32AD99D48005118D6 /* Senior_Thesis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Senior_Thesis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF0ABC62AD99D48005118D6 /* Senior_ThesisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Senior_ThesisApp.swift; sourceTree = "<group>"; };
@@ -78,8 +81,8 @@
 		0DF0ABDD2AD99D49005118D6 /* Senior_ThesisUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Senior_ThesisUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF0ABE12AD99D49005118D6 /* Senior_ThesisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Senior_ThesisUITests.swift; sourceTree = "<group>"; };
 		0DF0ABE32AD99D49005118D6 /* Senior_ThesisUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Senior_ThesisUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		0DF0ABF02AD99EC0005118D6 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		0DF0ABF22AD99EF1005118D6 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		0DF0ABF02AD99EC0005118D6 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
+		0DF0ABF22AD99EF1005118D6 /* SignInEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailView.swift; sourceTree = "<group>"; };
 		0DF0ABF42AD99F44005118D6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		0DF0ABF62AD99FF0005118D6 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
 		0DF0ABF82AD9A013005118D6 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
@@ -93,6 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DAE54DB2B84184400DC88EF /* FirebaseFirestoreSwift in Frameworks */,
+				0D89B2C62B85132200933136 /* FirebaseAuth in Frameworks */,
 				0DAE54D92B84184400DC88EF /* FirebaseDatabaseSwift in Frameworks */,
 				0DAE54D52B84184400DC88EF /* FirebaseAnalyticsSwift in Frameworks */,
 				0DAE54D72B84184400DC88EF /* FirebaseAppCheck in Frameworks */,
@@ -117,6 +121,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D89B2C42B85132200933136 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0D89B2C72B8513B700933136 /* SignIn&Up */ = {
+			isa = PBXGroup;
+			children = (
+				0DF0ABF02AD99EC0005118D6 /* SignIn.swift */,
+				0DF0ABF22AD99EF1005118D6 /* SignInEmailView.swift */,
+				0D5802502B1525BB00CD9BFD /* RegisterView.swift */,
+				0D89B2C82B851E4300933136 /* AuthentaticationManager.swift */,
+			);
+			path = "SignIn&Up";
+			sourceTree = "<group>";
+		};
 		0DF0ABBA2AD99D48005118D6 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +146,7 @@
 				0DF0ABD62AD99D49005118D6 /* Senior_ThesisTests */,
 				0DF0ABE02AD99D49005118D6 /* Senior_ThesisUITests */,
 				0DF0ABC42AD99D48005118D6 /* Products */,
+				0D89B2C42B85132200933136 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,10 +166,8 @@
 				0DF0ABC62AD99D48005118D6 /* Senior_ThesisApp.swift */,
 				0DF0ABFC2AD9A15C005118D6 /* PageView.swift */,
 				0DF0ABFA2AD9A12F005118D6 /* PageModel.swift */,
+				0D89B2C72B8513B700933136 /* SignIn&Up */,
 				0DF0ABC82AD99D48005118D6 /* ContentView.swift */,
-				0DF0ABF02AD99EC0005118D6 /* LoginView.swift */,
-				0DF0ABF22AD99EF1005118D6 /* SignUpView.swift */,
-				0D5802502B1525BB00CD9BFD /* RegisterView.swift */,
 				0DF0ABF42AD99F44005118D6 /* ProfileView.swift */,
 				0D5802562B1525E100CD9BFD /* StudentView.swift */,
 				0D5802542B1525DB00CD9BFD /* ProfessorView.swift */,
@@ -213,6 +234,7 @@
 				0DAE54D62B84184400DC88EF /* FirebaseAppCheck */,
 				0DAE54D82B84184400DC88EF /* FirebaseDatabaseSwift */,
 				0DAE54DA2B84184400DC88EF /* FirebaseFirestoreSwift */,
+				0D89B2C52B85132200933136 /* FirebaseAuth */,
 			);
 			productName = Senior_Thesis;
 			productReference = 0DF0ABC32AD99D48005118D6 /* Senior_Thesis.app */;
@@ -334,11 +356,11 @@
 			files = (
 				0DF0ABFB2AD9A12F005118D6 /* PageModel.swift in Sources */,
 				0D5802512B1525BC00CD9BFD /* RegisterView.swift in Sources */,
-				0DF0ABF32AD99EF1005118D6 /* SignUpView.swift in Sources */,
+				0DF0ABF32AD99EF1005118D6 /* SignInEmailView.swift in Sources */,
 				0D7851BA2B5AE1B6002CF44B /* ProfessorProfile.swift in Sources */,
 				0DF0ABF92AD9A013005118D6 /* CameraView.swift in Sources */,
 				0D5802552B1525DB00CD9BFD /* ProfessorView.swift in Sources */,
-				0DF0ABF12AD99EC0005118D6 /* LoginView.swift in Sources */,
+				0DF0ABF12AD99EC0005118D6 /* SignIn.swift in Sources */,
 				0DF0ABF72AD99FF0005118D6 /* CameraModel.swift in Sources */,
 				0D5802572B1525E100CD9BFD /* StudentView.swift in Sources */,
 				0D59A7842B5893B30044F763 /* Classes.swift in Sources */,
@@ -348,6 +370,7 @@
 				0DF0ABC92AD99D48005118D6 /* ContentView.swift in Sources */,
 				0DF0ABFD2AD9A15C005118D6 /* PageView.swift in Sources */,
 				0DF0ABC72AD99D48005118D6 /* Senior_ThesisApp.swift in Sources */,
+				0D89B2C92B851E4300933136 /* AuthentaticationManager.swift in Sources */,
 				0D5802592B1525FB00CD9BFD /* Universities.swift in Sources */,
 				0D7851BE2B5AE7BF002CF44B /* QrCodeImage.swift in Sources */,
 				0D7851BC2B5AE224002CF44B /* QrCodePrompt.swift in Sources */,
@@ -692,6 +715,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0D89B2C52B85132200933136 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0DAE54D12B84184400DC88EF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
 		0DAE54D22B84184400DC88EF /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0DAE54D12B84184400DC88EF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
