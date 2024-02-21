@@ -23,10 +23,27 @@ struct AuthDataResultModel
     }
 }
 
+
+
 final class AuthentaticationManager
 {
     static let shared = AuthentaticationManager()
     private init() { }
+    
+    func getAuthenticatedUser() throws -> AuthDataResultModel
+    {
+        guard let user = Auth.auth().currentUser else
+        {
+            throw URLError(.badServerResponse)
+        }
+        
+        return AuthDataResultModel(user: user)
+    }
+    
+    func signOut() throws
+    {
+        try Auth.auth().signOut()
+    }
     
     func createUser(email: String, password: String) async throws -> AuthDataResultModel {
        let authDataresult = try await Auth.auth().createUser(withEmail: email, password: password)

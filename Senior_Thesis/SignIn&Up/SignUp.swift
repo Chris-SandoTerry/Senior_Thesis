@@ -5,11 +5,12 @@
 
 import SwiftUI
 
-struct SignIn: View {
+struct SignUp: View {
+    @Binding var showSignUpView : Bool
     var body: some View {
         VStack{
             NavigationLink {
-                SignInEmailView()
+                SignUpEmailView(ShowSignUpView: $showSignUpView)
             } label: {
                 Text("Sign Up With Email")
                     .foregroundColor(.white)
@@ -17,19 +18,28 @@ struct SignIn: View {
                     .frame(maxWidth: .infinity)
                     .background(Color.blue)
                     .cornerRadius(10)
-                    
             }
 
         }
         .padding()
-        .navigationTitle("Sign In")
+        .navigationTitle("Sign Up / Login")
+        
+        NavigationLink{
+            SignUp(showSignUpView: $showSignUpView)
+        } label:{
+            Text("Sign In With Email")
+                .foregroundColor(.blue)
+               
+        }
+        .padding()
+        .navigationTitle("Sign Up / Login")
     }
 }
         struct LoginView_Previews: PreviewProvider {
             static var previews: some View {
                 NavigationStack
                 {
-                    SignIn()
+                    SignUp(showSignUpView: .constant(false))
                 }
                
             }

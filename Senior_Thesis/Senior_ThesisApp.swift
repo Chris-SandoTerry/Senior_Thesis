@@ -23,7 +23,7 @@ struct Senior_ThesisApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
         }
     }
 }

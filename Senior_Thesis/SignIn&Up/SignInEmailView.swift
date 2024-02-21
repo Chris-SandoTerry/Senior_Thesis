@@ -6,35 +6,27 @@ import Foundation
 import SwiftUI
 
 
-final class SignInEmailViewModel: ObservableObject
+final class SignUpEmailViewModel: ObservableObject
 {
     @Published var email = ""
     @Published var password = ""
     
-    func signIn(){
+    func signIn()async throws{
         guard !email.isEmpty, !password.isEmpty else
         {
             print("No email or password found.")
             return
         }
-        Task
-        {
-            do
-            {
-                let returnedUserData = try await AuthentaticationManager.shared.createUser(email: email, password: password)
-                print("Success")
-                print(returnedUserData)
-            }
-            catch
-            {
-                print("Error: \(error)")
-            }
-        }
+        let returnedUserData = try await AuthentaticationManager.shared.createUser(email: email, password: password)
+        
+        
     }
 }
 
-struct SignInEmailView: View {
-    @State private var viewmodel = SignInEmailViewModel()
+struct SignUpEmailView: View {
+    @State private var viewmodel = SignUpEmailViewModel()
+    @State private var navigateToRegister = false
+    @Binding var ShowSignUpView : Bool
    
     var body: some View {
         
@@ -48,15 +40,28 @@ struct SignInEmailView: View {
                 .background(Color.gray.opacity(0.5))
                 .cornerRadius(10)
             
+            NavigationLink(destination: RegisterView().navigationBarBackButtonHidden(true), isActive: $navigateToRegister) {
+                              EmptyView()
+            }
+            
+            
             Button(action: 
             {
-                viewmodel.signIn()
-                
+                Task
+                {
+                    do{
+                        try await viewmodel}
+                    catch
+                    {
+                        
+                    }
+                }
+                navigateToRegister = true
             },
                 
                    label:
                 {
-                Text("Sign In ")
+                Text("Sign Up")
                     .foregroundColor(.white)
                     .frame(height: 55)
                     .frame(maxWidth: .infinity)
@@ -67,7 +72,7 @@ struct SignInEmailView: View {
             
         }
         .padding()
-        .navigationTitle("Login")
+        .navigationTitle("Sign Up")
     }
 }
 
@@ -77,7 +82,7 @@ struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack
         {
-            SignInEmailView()
+            SignUpEmailView(ShowSignUpView: .constant(false))
         }
       
     }

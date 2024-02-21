@@ -4,8 +4,6 @@
 //
 
 import Foundation
-
-
 import SwiftUI
 import MapKit
 
@@ -38,18 +36,19 @@ struct ProfileView: View {
                     Spacer()
                     
                     Button(action: {
-                        presentationMode.wrappedValue.dismiss()
+                        //presentationMode.wrappedValue.dismiss()
                         showloginscreen = true
+                        
                     })
                     {
-                        Text("Sign Out")
+                        Text("Settings")
                             .font(.headline)
                             .foregroundColor(.red)
                         
                     
                     }
                     
-                    NavigationLink(destination: SignIn().navigationBarBackButtonHidden(true), isActive: $showloginscreen)
+                    NavigationLink(destination: SettingsView(showSignedInView: .constant(true)).navigationBarBackButtonHidden(false), isActive: $showloginscreen)
                     {
                         EmptyView()
                     }

@@ -25,6 +25,8 @@
 		0DAE54D72B84184400DC88EF /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 0DAE54D62B84184400DC88EF /* FirebaseAppCheck */; };
 		0DAE54D92B84184400DC88EF /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0DAE54D82B84184400DC88EF /* FirebaseDatabaseSwift */; };
 		0DAE54DB2B84184400DC88EF /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0DAE54DA2B84184400DC88EF /* FirebaseFirestoreSwift */; };
+		0DCE523E2B863A78000091D2 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE523D2B863A77000091D2 /* RootView.swift */; };
+		0DCE52402B864376000091D2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE523F2B864375000091D2 /* SettingsView.swift */; };
 		0DF0ABC72AD99D48005118D6 /* Senior_ThesisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABC62AD99D48005118D6 /* Senior_ThesisApp.swift */; };
 		0DF0ABC92AD99D48005118D6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABC82AD99D48005118D6 /* ContentView.swift */; };
 		0DF0ABCB2AD99D49005118D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DF0ABCA2AD99D49005118D6 /* Assets.xcassets */; };
@@ -32,7 +34,7 @@
 		0DF0ABD82AD99D49005118D6 /* Senior_ThesisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABD72AD99D49005118D6 /* Senior_ThesisTests.swift */; };
 		0DF0ABE22AD99D49005118D6 /* Senior_ThesisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABE12AD99D49005118D6 /* Senior_ThesisUITests.swift */; };
 		0DF0ABE42AD99D49005118D6 /* Senior_ThesisUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABE32AD99D49005118D6 /* Senior_ThesisUITestsLaunchTests.swift */; };
-		0DF0ABF12AD99EC0005118D6 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABF02AD99EC0005118D6 /* SignIn.swift */; };
+		0DF0ABF12AD99EC0005118D6 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABF02AD99EC0005118D6 /* SignUp.swift */; };
 		0DF0ABF32AD99EF1005118D6 /* SignInEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABF22AD99EF1005118D6 /* SignInEmailView.swift */; };
 		0DF0ABF52AD99F44005118D6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABF42AD99F44005118D6 /* ProfileView.swift */; };
 		0DF0ABF72AD99FF0005118D6 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABF62AD99FF0005118D6 /* CameraModel.swift */; };
@@ -71,6 +73,8 @@
 		0D7851BD2B5AE7BF002CF44B /* QrCodeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeImage.swift; sourceTree = "<group>"; };
 		0D89B2C82B851E4300933136 /* AuthentaticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentaticationManager.swift; sourceTree = "<group>"; };
 		0DAE54CF2B84164400DC88EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0DCE523D2B863A77000091D2 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		0DCE523F2B864375000091D2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0DF0ABC32AD99D48005118D6 /* Senior_Thesis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Senior_Thesis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF0ABC62AD99D48005118D6 /* Senior_ThesisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Senior_ThesisApp.swift; sourceTree = "<group>"; };
 		0DF0ABC82AD99D48005118D6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,7 +85,7 @@
 		0DF0ABDD2AD99D49005118D6 /* Senior_ThesisUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Senior_ThesisUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF0ABE12AD99D49005118D6 /* Senior_ThesisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Senior_ThesisUITests.swift; sourceTree = "<group>"; };
 		0DF0ABE32AD99D49005118D6 /* Senior_ThesisUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Senior_ThesisUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		0DF0ABF02AD99EC0005118D6 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
+		0DF0ABF02AD99EC0005118D6 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		0DF0ABF22AD99EF1005118D6 /* SignInEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailView.swift; sourceTree = "<group>"; };
 		0DF0ABF42AD99F44005118D6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		0DF0ABF62AD99FF0005118D6 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
@@ -131,10 +135,12 @@
 		0D89B2C72B8513B700933136 /* SignIn&Up */ = {
 			isa = PBXGroup;
 			children = (
-				0DF0ABF02AD99EC0005118D6 /* SignIn.swift */,
+				0DCE523D2B863A77000091D2 /* RootView.swift */,
+				0DF0ABF02AD99EC0005118D6 /* SignUp.swift */,
 				0DF0ABF22AD99EF1005118D6 /* SignInEmailView.swift */,
 				0D5802502B1525BB00CD9BFD /* RegisterView.swift */,
 				0D89B2C82B851E4300933136 /* AuthentaticationManager.swift */,
+				0DCE523F2B864375000091D2 /* SettingsView.swift */,
 			);
 			path = "SignIn&Up";
 			sourceTree = "<group>";
@@ -360,11 +366,12 @@
 				0D7851BA2B5AE1B6002CF44B /* ProfessorProfile.swift in Sources */,
 				0DF0ABF92AD9A013005118D6 /* CameraView.swift in Sources */,
 				0D5802552B1525DB00CD9BFD /* ProfessorView.swift in Sources */,
-				0DF0ABF12AD99EC0005118D6 /* SignIn.swift in Sources */,
+				0DF0ABF12AD99EC0005118D6 /* SignUp.swift in Sources */,
 				0DF0ABF72AD99FF0005118D6 /* CameraModel.swift in Sources */,
 				0D5802572B1525E100CD9BFD /* StudentView.swift in Sources */,
 				0D59A7842B5893B30044F763 /* Classes.swift in Sources */,
 				0D59A7862B5895480044F763 /* ClassesLogic.swift in Sources */,
+				0DCE523E2B863A78000091D2 /* RootView.swift in Sources */,
 				0D5802532B1525C900CD9BFD /* RegisterModel.swift in Sources */,
 				0DF0ABF52AD99F44005118D6 /* ProfileView.swift in Sources */,
 				0DF0ABC92AD99D48005118D6 /* ContentView.swift in Sources */,
@@ -374,6 +381,7 @@
 				0D5802592B1525FB00CD9BFD /* Universities.swift in Sources */,
 				0D7851BE2B5AE7BF002CF44B /* QrCodeImage.swift in Sources */,
 				0D7851BC2B5AE224002CF44B /* QrCodePrompt.swift in Sources */,
+				0DCE52402B864376000091D2 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
