@@ -17,6 +17,28 @@ final class SettingsViewModel:ObservableObject
     {
         try AuthentaticationManager.shared.signOut()
     }
+    
+    func resetPassword() async throws{
+        let authUser = try AuthentaticationManager.shared.getAuthenticatedUser()
+        
+        guard let email = authUser.email
+        else {
+            throw URLError(.fileDoesNotExist)
+        }
+        
+        try await AuthentaticationManager.shared.resetPassword(email: email)
+    }
+    
+    func updateEmail() async throws
+    {
+        let email = "bruh@gmail.com"
+        try await AuthentaticationManager.shared.updateEmail(email: email)
+    }
+    
+    func updatePassword() async throws{
+        let password = "hello123"
+        try await AuthentaticationManager.shared.updatePassword(password: password)
+    }
 }
 
 struct SettingsView: View {
@@ -43,6 +65,56 @@ struct SettingsView: View {
                 }
                 
             }
+            Button("Reset Password")
+            {
+                Task
+                {
+                    do
+                    {
+                        try await viewModel.resetPassword()
+                        print("PASSWORD RESET")
+                        showSignedInView = true
+                    }catch
+                    {
+                        print(error)
+                    }
+                }
+                
+            }
+            Button("Update Password")
+            {
+                Task
+                {
+                    do
+                    {
+                        try await viewModel.updatePassword()
+                        print("PASSWORD UPDATED")
+                        showSignedInView = true
+                    }catch
+                    {
+                        print(error)
+                    }
+                }
+                
+            }
+            Button("Update Email")
+            {
+                Task
+                {
+                    do
+                    {
+                        try await viewModel.updateEmail()
+                        print("EMAIL UPDATED")
+                        showSignedInView = true
+                    }catch
+                    {
+                        print(error)
+                    }
+                }
+                
+            }
+
+
         }
         .navigationBarTitle("Settings")
     }

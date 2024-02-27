@@ -11,13 +11,25 @@ final class SignUpEmailViewModel: ObservableObject
     @Published var email = ""
     @Published var password = ""
     
+    func signUp()async throws{
+        guard !email.isEmpty, !password.isEmpty else
+        {
+            print("No email or password found.")
+            return
+        }
+       try await AuthentaticationManager.shared.createUser(email: email, password: password)
+        
+        
+    }
+    
+    
     func signIn()async throws{
         guard !email.isEmpty, !password.isEmpty else
         {
             print("No email or password found.")
             return
         }
-        let returnedUserData = try await AuthentaticationManager.shared.createUser(email: email, password: password)
+       try await AuthentaticationManager.shared.signInUser(email: email, password: password)
         
         
     }
@@ -50,11 +62,25 @@ struct SignUpEmailView: View {
                 Task
                 {
                     do{
-                        try await viewmodel}
+                        try await viewmodel.signUp()
+                        ShowSignUpView = false
+                        return
+                    }
                     catch
                     {
-                        
+                        print(error)
                     }
+                    do{
+                        try await viewmodel.signIn()
+                        ShowSignUpView = false
+                        return
+                    }
+                    catch
+                    {
+                        print(error)
+                    }
+                    //these should be seprate buttons^
+                    
                 }
                 navigateToRegister = true
             },
