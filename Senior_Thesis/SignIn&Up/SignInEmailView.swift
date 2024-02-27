@@ -52,7 +52,7 @@ struct SignUpEmailView: View {
                 .background(Color.gray.opacity(0.5))
                 .cornerRadius(10)
             
-            NavigationLink(destination: RegisterView().navigationBarBackButtonHidden(true), isActive: $navigateToRegister) {
+            NavigationLink(destination: SettingsView(showSignedInView: .constant(false)).navigationBarBackButtonHidden(true), isActive: $navigateToRegister) {
                               EmptyView()
             }
             

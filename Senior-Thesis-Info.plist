@@ -2,7 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSAppTransportSecurity</key>
-	<dict/>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Google Sign In</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.978081689268-spnqpriq98630o843i7hilgd7anqdvar</string>
+			</array>
+		</dict>
+	</array>
+	<key>GIDClientID</key>
+	<string>978081689268-spnqpriq98630o843i7hilgd7anqdvar.apps.googleusercontent.com</string>
 </dict>
 </plist>

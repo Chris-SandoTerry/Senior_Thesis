@@ -65,6 +65,20 @@ struct SettingsView: View {
                 }
                 
             }
+            emailSection
+        }
+        .navigationBarTitle("Settings")
+    }
+}
+
+#Preview {
+    SettingsView(showSignedInView: .constant(false))
+}
+
+extension SettingsView{
+    
+    private var emailSection: some View{
+        Section {
             Button("Reset Password")
             {
                 Task
@@ -73,7 +87,7 @@ struct SettingsView: View {
                     {
                         try await viewModel.resetPassword()
                         print("PASSWORD RESET")
-                        showSignedInView = true
+                        //for these functions instruct them to login and then prompt a screen for them to enter it
                     }catch
                     {
                         print(error)
@@ -89,7 +103,6 @@ struct SettingsView: View {
                     {
                         try await viewModel.updatePassword()
                         print("PASSWORD UPDATED")
-                        showSignedInView = true
                     }catch
                     {
                         print(error)
@@ -105,7 +118,6 @@ struct SettingsView: View {
                     {
                         try await viewModel.updateEmail()
                         print("EMAIL UPDATED")
-                        showSignedInView = true
                     }catch
                     {
                         print(error)
@@ -116,10 +128,8 @@ struct SettingsView: View {
 
 
         }
-        .navigationBarTitle("Settings")
+        header: {
+            Text("Email functions")
+        }
     }
-}
-
-#Preview {
-    SettingsView(showSignedInView: .constant(false))
 }
