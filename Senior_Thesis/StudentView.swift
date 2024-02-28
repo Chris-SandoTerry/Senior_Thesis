@@ -15,7 +15,7 @@ struct StudentScene: View {
     var body: some View {
         NavigationView {
             List(uni, id: \.self) { university in
-                NavigationLink(destination: ProfileView().navigationBarBackButtonHidden(true)) {
+                NavigationLink(destination: ProfileView(showSingnedInView: .constant(false)).navigationBarBackButtonHidden(true)) {
                    
                     HStack {
                         Image(systemName: "star.fill")

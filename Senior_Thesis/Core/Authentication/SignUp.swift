@@ -7,15 +7,7 @@ import SwiftUI
 import GoogleSignIn
 import GoogleSignInSwift
 
-@MainActor
-final class SignUpViewModel: ObservableObject{
-    
-    func SignInGoogle() async throws {
-        let helper = SignInGoogleHelper()
-        let tokens = try await helper.signIn()
-        try await AuthentaticationManager.shared.signInWithGoogle(tokens: tokens)
-    }
-}
+
 
 struct SignUp: View {
     

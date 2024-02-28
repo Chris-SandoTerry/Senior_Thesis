@@ -7,39 +7,7 @@
 
 import SwiftUI
 
-@MainActor
-final class SettingsViewModel:ObservableObject
-{
-    
-    
-    
-    func signOut() throws
-    {
-        try AuthentaticationManager.shared.signOut()
-    }
-    
-    func resetPassword() async throws{
-        let authUser = try AuthentaticationManager.shared.getAuthenticatedUser()
-        
-        guard let email = authUser.email
-        else {
-            throw URLError(.fileDoesNotExist)
-        }
-        
-        try await AuthentaticationManager.shared.resetPassword(email: email)
-    }
-    
-    func updateEmail() async throws
-    {
-        let email = "bruh@gmail.com"
-        try await AuthentaticationManager.shared.updateEmail(email: email)
-    }
-    
-    func updatePassword() async throws{
-        let password = "hello123"
-        try await AuthentaticationManager.shared.updatePassword(password: password)
-    }
-}
+
 
 struct SettingsView: View {
     @StateObject private var viewModel = SettingsViewModel()
@@ -65,7 +33,31 @@ struct SettingsView: View {
                 }
                 
             }
-            emailSection
+            
+            Button(role: .destructive){
+                Task
+                {
+                    do
+                    {
+                        try await viewModel.deleteAccount()
+                        showSignedInView = true
+                    }catch
+                    {
+                        print(error)
+                    }
+                }
+            }label: {
+                Text("Delete Acount")
+            }
+            
+            
+            if viewModel.authProviders.contains(.email){
+                emailSection
+            }
+            
+        }
+        .onAppear{
+            viewModel.loadAuthProviders()
         }
         .navigationBarTitle("Settings")
     }

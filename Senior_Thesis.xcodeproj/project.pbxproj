@@ -31,6 +31,12 @@
 		0DCE524C2B8E5C54000091D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0DCE524B2B8E5C54000091D2 /* GoogleService-Info.plist */; };
 		0DCE524F2B8E6080000091D2 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE524E2B8E6080000091D2 /* Utilities.swift */; };
 		0DCE52512B8E7148000091D2 /* SignInGoogleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE52502B8E7147000091D2 /* SignInGoogleHelper.swift */; };
+		0DCE52532B8FB07D000091D2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0DCE52522B8FB07D000091D2 /* FirebaseFirestore */; };
+		0DCE52572B8FB3EA000091D2 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE52562B8FB3EA000091D2 /* SettingsViewModel.swift */; };
+		0DCE525A2B8FB526000091D2 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE52592B8FB526000091D2 /* SignUpViewModel.swift */; };
+		0DCE525D2B8FB58A000091D2 /* SignInEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE525C2B8FB58A000091D2 /* SignInEmailViewModel.swift */; };
+		0DCE52612B8FB614000091D2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE52602B8FB614000091D2 /* ProfileView.swift */; };
+		0DCE52642B8FBB8B000091D2 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE52632B8FBB8B000091D2 /* UserManager.swift */; };
 		0DF0ABC72AD99D48005118D6 /* Senior_ThesisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABC62AD99D48005118D6 /* Senior_ThesisApp.swift */; };
 		0DF0ABC92AD99D48005118D6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABC82AD99D48005118D6 /* ContentView.swift */; };
 		0DF0ABCB2AD99D49005118D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DF0ABCA2AD99D49005118D6 /* Assets.xcassets */; };
@@ -40,7 +46,6 @@
 		0DF0ABE42AD99D49005118D6 /* Senior_ThesisUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABE32AD99D49005118D6 /* Senior_ThesisUITestsLaunchTests.swift */; };
 		0DF0ABF12AD99EC0005118D6 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABF02AD99EC0005118D6 /* SignUp.swift */; };
 		0DF0ABF32AD99EF1005118D6 /* SignInEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABF22AD99EF1005118D6 /* SignInEmailView.swift */; };
-		0DF0ABF52AD99F44005118D6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABF42AD99F44005118D6 /* ProfileView.swift */; };
 		0DF0ABF72AD99FF0005118D6 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABF62AD99FF0005118D6 /* CameraModel.swift */; };
 		0DF0ABF92AD9A013005118D6 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABF82AD9A013005118D6 /* CameraView.swift */; };
 		0DF0ABFB2AD9A12F005118D6 /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABFA2AD9A12F005118D6 /* PageModel.swift */; };
@@ -82,6 +87,11 @@
 		0DCE524B2B8E5C54000091D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0DCE524E2B8E6080000091D2 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		0DCE52502B8E7147000091D2 /* SignInGoogleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInGoogleHelper.swift; sourceTree = "<group>"; };
+		0DCE52562B8FB3EA000091D2 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		0DCE52592B8FB526000091D2 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		0DCE525C2B8FB58A000091D2 /* SignInEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailViewModel.swift; sourceTree = "<group>"; };
+		0DCE52602B8FB614000091D2 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		0DCE52632B8FBB8B000091D2 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		0DF0ABC32AD99D48005118D6 /* Senior_Thesis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Senior_Thesis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF0ABC62AD99D48005118D6 /* Senior_ThesisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Senior_ThesisApp.swift; sourceTree = "<group>"; };
 		0DF0ABC82AD99D48005118D6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,7 +104,6 @@
 		0DF0ABE32AD99D49005118D6 /* Senior_ThesisUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Senior_ThesisUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0DF0ABF02AD99EC0005118D6 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		0DF0ABF22AD99EF1005118D6 /* SignInEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailView.swift; sourceTree = "<group>"; };
-		0DF0ABF42AD99F44005118D6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		0DF0ABF62AD99FF0005118D6 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
 		0DF0ABF82AD9A013005118D6 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		0DF0ABFA2AD9A12F005118D6 /* PageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
@@ -111,6 +120,7 @@
 				0DAE54D92B84184400DC88EF /* FirebaseDatabaseSwift in Frameworks */,
 				0DCE52492B8E5AE9000091D2 /* GoogleSignInSwift in Frameworks */,
 				0DAE54D52B84184400DC88EF /* FirebaseAnalyticsSwift in Frameworks */,
+				0DCE52532B8FB07D000091D2 /* FirebaseFirestore in Frameworks */,
 				0DAE54D72B84184400DC88EF /* FirebaseAppCheck in Frameworks */,
 				0DAE54D32B84184400DC88EF /* FirebaseAnalytics in Frameworks */,
 				0DCE52472B8E5AE9000091D2 /* GoogleSignIn in Frameworks */,
@@ -144,12 +154,8 @@
 		0D89B2C72B8513B700933136 /* SignIn&Up */ = {
 			isa = PBXGroup;
 			children = (
-				0DCE523D2B863A77000091D2 /* RootView.swift */,
-				0DF0ABF02AD99EC0005118D6 /* SignUp.swift */,
-				0DF0ABF22AD99EF1005118D6 /* SignInEmailView.swift */,
 				0D5802502B1525BB00CD9BFD /* RegisterView.swift */,
 				0D89B2C82B851E4300933136 /* AuthentaticationManager.swift */,
-				0DCE523F2B864375000091D2 /* SettingsView.swift */,
 				0DCE52502B8E7147000091D2 /* SignInGoogleHelper.swift */,
 			);
 			path = "SignIn&Up";
@@ -161,6 +167,61 @@
 				0DCE524E2B8E6080000091D2 /* Utilities.swift */,
 			);
 			path = utilities;
+			sourceTree = "<group>";
+		};
+		0DCE52542B8FB1F8000091D2 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				0DCE523D2B863A77000091D2 /* RootView.swift */,
+				0DCE52582B8FB4E1000091D2 /* Authentication */,
+				0DCE52552B8FB3A7000091D2 /* Settings */,
+				0DCE525F2B8FB5E4000091D2 /* Profile */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		0DCE52552B8FB3A7000091D2 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0DCE523F2B864375000091D2 /* SettingsView.swift */,
+				0DCE52562B8FB3EA000091D2 /* SettingsViewModel.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		0DCE52582B8FB4E1000091D2 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				0DF0ABF02AD99EC0005118D6 /* SignUp.swift */,
+				0DCE52592B8FB526000091D2 /* SignUpViewModel.swift */,
+				0DCE525B2B8FB551000091D2 /* Subviews */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		0DCE525B2B8FB551000091D2 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				0DF0ABF22AD99EF1005118D6 /* SignInEmailView.swift */,
+				0DCE525C2B8FB58A000091D2 /* SignInEmailViewModel.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		0DCE525F2B8FB5E4000091D2 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				0DCE52602B8FB614000091D2 /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		0DCE52622B8FBB7C000091D2 /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+				0DCE52632B8FBB8B000091D2 /* UserManager.swift */,
+			);
+			path = Firestore;
 			sourceTree = "<group>";
 		};
 		0DF0ABBA2AD99D48005118D6 = {
@@ -190,11 +251,12 @@
 				0DCE524A2B8E5B52000091D2 /* Senior-Thesis-Info.plist */,
 				0DF0ABC62AD99D48005118D6 /* Senior_ThesisApp.swift */,
 				0DF0ABFC2AD9A15C005118D6 /* PageView.swift */,
+				0DCE52622B8FBB7C000091D2 /* Firestore */,
 				0DF0ABFA2AD9A12F005118D6 /* PageModel.swift */,
+				0DCE52542B8FB1F8000091D2 /* Core */,
 				0DCE524D2B8E6059000091D2 /* utilities */,
 				0D89B2C72B8513B700933136 /* SignIn&Up */,
 				0DF0ABC82AD99D48005118D6 /* ContentView.swift */,
-				0DF0ABF42AD99F44005118D6 /* ProfileView.swift */,
 				0D5802562B1525E100CD9BFD /* StudentView.swift */,
 				0D5802542B1525DB00CD9BFD /* ProfessorView.swift */,
 				0D7851B92B5AE1B5002CF44B /* ProfessorProfile.swift */,
@@ -263,6 +325,7 @@
 				0D89B2C52B85132200933136 /* FirebaseAuth */,
 				0DCE52462B8E5AE9000091D2 /* GoogleSignIn */,
 				0DCE52482B8E5AE9000091D2 /* GoogleSignInSwift */,
+				0DCE52522B8FB07D000091D2 /* FirebaseFirestore */,
 			);
 			productName = Senior_Thesis;
 			productReference = 0DF0ABC32AD99D48005118D6 /* Senior_Thesis.app */;
@@ -385,19 +448,23 @@
 			files = (
 				0DF0ABFB2AD9A12F005118D6 /* PageModel.swift in Sources */,
 				0D5802512B1525BC00CD9BFD /* RegisterView.swift in Sources */,
+				0DCE52642B8FBB8B000091D2 /* UserManager.swift in Sources */,
 				0DF0ABF32AD99EF1005118D6 /* SignInEmailView.swift in Sources */,
 				0D7851BA2B5AE1B6002CF44B /* ProfessorProfile.swift in Sources */,
 				0DF0ABF92AD9A013005118D6 /* CameraView.swift in Sources */,
+				0DCE525D2B8FB58A000091D2 /* SignInEmailViewModel.swift in Sources */,
 				0D5802552B1525DB00CD9BFD /* ProfessorView.swift in Sources */,
 				0DF0ABF12AD99EC0005118D6 /* SignUp.swift in Sources */,
 				0DF0ABF72AD99FF0005118D6 /* CameraModel.swift in Sources */,
 				0D5802572B1525E100CD9BFD /* StudentView.swift in Sources */,
 				0D59A7842B5893B30044F763 /* Classes.swift in Sources */,
+				0DCE52572B8FB3EA000091D2 /* SettingsViewModel.swift in Sources */,
+				0DCE52612B8FB614000091D2 /* ProfileView.swift in Sources */,
 				0D59A7862B5895480044F763 /* ClassesLogic.swift in Sources */,
 				0DCE523E2B863A78000091D2 /* RootView.swift in Sources */,
 				0DCE524F2B8E6080000091D2 /* Utilities.swift in Sources */,
+				0DCE525A2B8FB526000091D2 /* SignUpViewModel.swift in Sources */,
 				0D5802532B1525C900CD9BFD /* RegisterModel.swift in Sources */,
-				0DF0ABF52AD99F44005118D6 /* ProfileView.swift in Sources */,
 				0DF0ABC92AD99D48005118D6 /* ContentView.swift in Sources */,
 				0DCE52512B8E7148000091D2 /* SignInGoogleHelper.swift in Sources */,
 				0DF0ABFD2AD9A15C005118D6 /* PageView.swift in Sources */,
@@ -797,6 +864,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0DCE52452B8E5AE6000091D2 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		0DCE52522B8FB07D000091D2 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0DAE54D12B84184400DC88EF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

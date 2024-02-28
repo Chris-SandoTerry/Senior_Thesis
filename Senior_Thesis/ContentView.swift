@@ -17,9 +17,11 @@ struct ContentView: View
     private let dotApperance = UIPageControl.appearance()
 
     var body: some View {
+        
         NavigationView {
+            
             ZStack {
-                Color.brown
+                Color.pink
                     .ignoresSafeArea()
                     .opacity(1.0)
                 Circle()

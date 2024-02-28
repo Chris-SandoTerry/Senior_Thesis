@@ -44,7 +44,7 @@ final class AuthentaticationManager
         return AuthDataResultModel(user: user)
     }
     
-    func getProvider () throws -> [AuthProviderOption] {
+    func getProviders () throws -> [AuthProviderOption] {
         guard let providerData = Auth.auth().currentUser?.providerData else{
             throw URLError(.badServerResponse)
         }
@@ -61,11 +61,16 @@ final class AuthentaticationManager
         return providers
     }
     
-    func signOut() throws
-    {
+    func signOut() throws {
         try Auth.auth().signOut()
     }
     
+    func delete() async throws {
+        guard let user = Auth.auth().currentUser else{
+            throw URLError(.badURL)
+        }
+        try await user.delete()
+    }
 
     
     
