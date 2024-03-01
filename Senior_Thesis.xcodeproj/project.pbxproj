@@ -250,9 +250,9 @@
 			children = (
 				0DCE524A2B8E5B52000091D2 /* Senior-Thesis-Info.plist */,
 				0DF0ABC62AD99D48005118D6 /* Senior_ThesisApp.swift */,
+				0DF0ABFA2AD9A12F005118D6 /* PageModel.swift */,
 				0DF0ABFC2AD9A15C005118D6 /* PageView.swift */,
 				0DCE52622B8FBB7C000091D2 /* Firestore */,
-				0DF0ABFA2AD9A12F005118D6 /* PageModel.swift */,
 				0DCE52542B8FB1F8000091D2 /* Core */,
 				0DCE524D2B8E6059000091D2 /* utilities */,
 				0D89B2C72B8513B700933136 /* SignIn&Up */,

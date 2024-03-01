@@ -17,6 +17,24 @@ final class ProfileViewModel: ObservableObject {
         self.user = try await UserManager.shared.getUser(userId: authDataResult.uid)
     }
     
+    func toggleTeacherStatus() {
+        guard let user else {return}
+        let currentValue = user.isTeacher ?? false
+        Task {
+            try await UserManager.shared.updateUserTeacherStatus(userId: user.userId,isTeacher:!currentValue)
+            self.user = try await UserManager.shared.getUser(userId: user.userId)
+        }
+    }
+    
+    func toggleStudentStatus() {
+        guard let user else {return}
+        let currentValue = user.isStudent ?? false
+        Task {
+            try await UserManager.shared.updateUserStudentStatus(userId: user.userId,isStudent: !currentValue)
+            self.user = try await UserManager.shared.getUser(userId: user.userId)
+        }
+    }
+    
 }
 
 struct ProfileView: View {
@@ -32,6 +50,19 @@ struct ProfileView: View {
                 if let email = user.email {
                     Text("Email: \(email.description.capitalized)  ")
                 }
+                
+                Button {
+                    viewModel.toggleTeacherStatus()
+                } label: {
+                    Text("User is a Teacher: \((user.isTeacher ?? false).description.capitalized) ")
+                }
+                
+                Button {
+                    viewModel.toggleStudentStatus()
+                } label: {
+                    Text("User is a Student: \((user.isStudent ?? false).description.capitalized) ")
+                }
+
             }
            
         }
