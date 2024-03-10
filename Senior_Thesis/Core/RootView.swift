@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RootView: View {
     @State private var ShowSignedInView: Bool = false
+    
     var body: some View {
        
         ZStack
@@ -16,7 +17,7 @@ struct RootView: View {
             if !ShowSignedInView{
                 NavigationStack
                 {
-                    ProfileView(showSingnedInView: $ShowSignedInView)
+                    ProfileView(showSingnedInView: $ShowSignedInView)//profileView
                 }
             }
             

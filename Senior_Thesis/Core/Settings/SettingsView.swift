@@ -22,13 +22,11 @@ struct SettingsView: View {
             {
                 Task
                 {
-                    do
-                    {
+                    do{
                         try viewModel.signOut()
                         showSignedInView = true
-                    }catch
-                    {
-                        print(error)
+                    }catch{
+                        print("Error signing out: \(error)")
                     }
                 }
                 
