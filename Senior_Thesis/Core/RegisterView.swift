@@ -8,50 +8,83 @@
 import Foundation
 import SwiftUI
 
-struct RegisterView: View {
-    @State private var showStudentScene = false
-    @State private var showProfessorScene = false
-    @StateObject private var viewModel = ProfileViewModel()
-    let uni = unilist
-
-    var body: some View {
-        NavigationView {
-            VStack {
-                Text("Choose to which apply")
-                    .font(.title)
+@MainActor
+final class RegisterViewModel: ObservableObject {
+    @Published private(set) var user: DBUser? = nil
     
-                let user = viewModel.user
-
-                NavigationLink(destination: ProfileView(showSingnedInView: $showStudentScene).navigationBarBackButtonHidden(true), isActive: $showStudentScene) {
-                    Text("Apply as a Student")
-                        .font(.headline)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-                .isDetailLink(false)
-                
-               
-                
-                NavigationLink(destination: ProfileView(showSingnedInView: $showProfessorScene).navigationBarBackButtonHidden(true), isActive: $showProfessorScene) {
-                    Text("Apply as a Professor")
-                        .font(.headline)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-                .isDetailLink(false)
+    func toggleTeacherStatus() {
+        guard let user = user else { return }
+        let currentValue = user.isTeacher ?? false
+        Task {
+            do {
+                try await UserManager.shared.updateUserTeacherStatus(userId: user.userId, isTeacher: !currentValue)
+                self.user = try await UserManager.shared.getUser(userId: user.userId)
+            } catch {
+                print("Error updating user teacher status: \(error)")
             }
-            .navigationTitle("Apply")
+        }
+    }
+    
+    func toggleStudentStatus() {
+        guard let user = user else { return }
+        let currentValue = user.isStudent ?? false
+        Task {
+            do {
+                try await UserManager.shared.updateUserStudentStatus(userId: user.userId, isStudent: !currentValue)
+                self.user = try await UserManager.shared.getUser(userId: user.userId)
+            } catch {
+                print("Error updating user student status: \(error)")
+            }
         }
     }
 }
 
+struct RegisterView: View {
+    @StateObject private var viewModel = RegisterViewModel()
+    @Binding var showSingnedInView: Bool
+    @State private var selection = 0
+    @State private var isProfileViewPresented = false // New state variable to track if ProfileView should be presented
+    
+    var body: some View {
+        TabView(selection: $selection) {
+            NavigationView {
+                if let user = viewModel.user {
+                    VStack {
+                        Button {
+                            viewModel.toggleTeacherStatus()
+                            isProfileViewPresented = true // Present ProfileView after toggling status
+                        } label: {
+                            Text("User is a Teacher: \((user.isTeacher ?? false).description.capitalized) ")
+                        }
+                        .padding()
+                        
+                        NavigationLink(destination: ProfileView(showSingnedInView: $showSingnedInView).navigationBarBackButtonHidden(true), isActive: $isProfileViewPresented) {
+                            EmptyView() // Use NavigationLink for programmatic navigation
+                        }
+                        
+                        Button {
+                            viewModel.toggleStudentStatus()
+                            isProfileViewPresented = true // Present ProfileView after toggling status
+                        } label: {
+                            Text("User is a Student: \((user.isStudent ?? false).description.capitalized) ")
+                        }
+                        .padding()
+                        
+                        NavigationLink(destination: ProfileView(showSingnedInView: $showSingnedInView).navigationBarBackButtonHidden(true), isActive: $isProfileViewPresented) {
+                            EmptyView() // Use NavigationLink for programmatic navigation
+                        }
+                    }
+//                    .task {
+//                        try? await viewModel.loadcurrentUser()
+//                    }
+                }
+            }
+        }
+    }
+}
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView()
+        RegisterView(showSingnedInView: .constant(false))
     }
 }

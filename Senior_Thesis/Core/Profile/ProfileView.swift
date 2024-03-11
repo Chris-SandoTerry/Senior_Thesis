@@ -56,9 +56,9 @@ struct ProfileView: View {
                             .frame(width: 100, height: 100)
                             .clipShape(Circle())
                     }
-//                    if let email = user.email {
-//                        Text("Email: \(email.description.capitalized)  ")
-//                    }
+                    if let email = user.email {
+                        Text("Email: \(email.description.capitalized)  ")
+                    }
                     Button {
                         viewModel.toggleTeacherStatus()
                     } label: {

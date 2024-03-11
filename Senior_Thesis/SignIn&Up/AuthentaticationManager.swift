@@ -7,13 +7,13 @@
 
 import Foundation
 import FirebaseAuth
+import UIKit
 
 struct AuthDataResultModel
 {
     let uid: String
     let email: String?
-    let photoUrl: String?
-    
+    let photoUrl: String? 
     
     init(user:User)
     {

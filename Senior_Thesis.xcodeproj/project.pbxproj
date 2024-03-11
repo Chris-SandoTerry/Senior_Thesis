@@ -160,6 +160,15 @@
 			path = "SignIn&Up";
 			sourceTree = "<group>";
 		};
+		0D8F5BC52B9F43E400EC4DAA /* QrCode */ = {
+			isa = PBXGroup;
+			children = (
+				0D7851BB2B5AE224002CF44B /* QrCodePrompt.swift */,
+				0D7851BD2B5AE7BF002CF44B /* QrCodeImage.swift */,
+			);
+			path = QrCode;
+			sourceTree = "<group>";
+		};
 		0DCE524D2B8E6059000091D2 /* utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,10 +267,9 @@
 				0DCE52542B8FB1F8000091D2 /* Core */,
 				0DCE524D2B8E6059000091D2 /* utilities */,
 				0D89B2C72B8513B700933136 /* SignIn&Up */,
+				0D8F5BC52B9F43E400EC4DAA /* QrCode */,
 				0D5802562B1525E100CD9BFD /* StudentView.swift */,
 				0D5802542B1525DB00CD9BFD /* ProfessorView.swift */,
-				0D7851BB2B5AE224002CF44B /* QrCodePrompt.swift */,
-				0D7851BD2B5AE7BF002CF44B /* QrCodeImage.swift */,
 				0D5802522B1525C900CD9BFD /* RegisterModel.swift */,
 				0D5802582B1525FB00CD9BFD /* Universities.swift */,
 				0D59A7852B5895480044F763 /* ClassesLogic.swift */,
