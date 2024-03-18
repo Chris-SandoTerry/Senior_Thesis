@@ -14,7 +14,7 @@
 		0D5802592B1525FB00CD9BFD /* Universities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5802582B1525FB00CD9BFD /* Universities.swift */; };
 		0D59A7842B5893B30044F763 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D59A7832B5893B30044F763 /* Classes.swift */; };
 		0D59A7862B5895480044F763 /* ClassesLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D59A7852B5895480044F763 /* ClassesLogic.swift */; };
-		0D7851BA2B5AE1B6002CF44B /* ProfessorProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7851B92B5AE1B5002CF44B /* ProfessorProfile.swift */; };
+		0D7851BA2B5AE1B6002CF44B /* StudentProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7851B92B5AE1B5002CF44B /* StudentProfile.swift */; };
 		0D7851BC2B5AE224002CF44B /* QrCodePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7851BB2B5AE224002CF44B /* QrCodePrompt.swift */; };
 		0D7851BE2B5AE7BF002CF44B /* QrCodeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7851BD2B5AE7BF002CF44B /* QrCodeImage.swift */; };
 		0D89B2C62B85132200933136 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0D89B2C52B85132200933136 /* FirebaseAuth */; };
@@ -24,11 +24,11 @@
 		0DAE54D72B84184400DC88EF /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 0DAE54D62B84184400DC88EF /* FirebaseAppCheck */; };
 		0DAE54D92B84184400DC88EF /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0DAE54D82B84184400DC88EF /* FirebaseDatabaseSwift */; };
 		0DAE54DB2B84184400DC88EF /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0DAE54DA2B84184400DC88EF /* FirebaseFirestoreSwift */; };
+		0DB0FC852BA0C31E0067975B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0DB0FC842BA0C31E0067975B /* GoogleService-Info.plist */; };
 		0DCE523E2B863A78000091D2 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE523D2B863A77000091D2 /* RootView.swift */; };
 		0DCE52402B864376000091D2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE523F2B864375000091D2 /* SettingsView.swift */; };
 		0DCE52472B8E5AE9000091D2 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 0DCE52462B8E5AE9000091D2 /* GoogleSignIn */; };
 		0DCE52492B8E5AE9000091D2 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0DCE52482B8E5AE9000091D2 /* GoogleSignInSwift */; };
-		0DCE524C2B8E5C54000091D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0DCE524B2B8E5C54000091D2 /* GoogleService-Info.plist */; };
 		0DCE524F2B8E6080000091D2 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE524E2B8E6080000091D2 /* Utilities.swift */; };
 		0DCE52512B8E7148000091D2 /* SignInGoogleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE52502B8E7147000091D2 /* SignInGoogleHelper.swift */; };
 		0DCE52532B8FB07D000091D2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0DCE52522B8FB07D000091D2 /* FirebaseFirestore */; };
@@ -77,14 +77,14 @@
 		0D5802582B1525FB00CD9BFD /* Universities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Universities.swift; sourceTree = "<group>"; };
 		0D59A7832B5893B30044F763 /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		0D59A7852B5895480044F763 /* ClassesLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesLogic.swift; sourceTree = "<group>"; };
-		0D7851B92B5AE1B5002CF44B /* ProfessorProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessorProfile.swift; sourceTree = "<group>"; };
+		0D7851B92B5AE1B5002CF44B /* StudentProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentProfile.swift; sourceTree = "<group>"; };
 		0D7851BB2B5AE224002CF44B /* QrCodePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodePrompt.swift; sourceTree = "<group>"; };
 		0D7851BD2B5AE7BF002CF44B /* QrCodeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeImage.swift; sourceTree = "<group>"; };
 		0D89B2C82B851E4300933136 /* AuthentaticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentaticationManager.swift; sourceTree = "<group>"; };
+		0DB0FC842BA0C31E0067975B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0DCE523D2B863A77000091D2 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		0DCE523F2B864375000091D2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0DCE524A2B8E5B52000091D2 /* Senior-Thesis-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Senior-Thesis-Info.plist"; sourceTree = SOURCE_ROOT; };
-		0DCE524B2B8E5C54000091D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0DCE524E2B8E6080000091D2 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		0DCE52502B8E7147000091D2 /* SignInGoogleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInGoogleHelper.swift; sourceTree = "<group>"; };
 		0DCE52562B8FB3EA000091D2 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				0DCE52602B8FB614000091D2 /* ProfileView.swift */,
-				0D7851B92B5AE1B5002CF44B /* ProfessorProfile.swift */,
+				0D7851B92B5AE1B5002CF44B /* StudentProfile.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -276,7 +276,7 @@
 				0D59A7832B5893B30044F763 /* Classes.swift */,
 				0DF0ABF62AD99FF0005118D6 /* CameraModel.swift */,
 				0DF0ABF82AD9A013005118D6 /* CameraView.swift */,
-				0DCE524B2B8E5C54000091D2 /* GoogleService-Info.plist */,
+				0DB0FC842BA0C31E0067975B /* GoogleService-Info.plist */,
 				0DF0ABCA2AD99D49005118D6 /* Assets.xcassets */,
 				0DF0ABCC2AD99D49005118D6 /* Preview Content */,
 			);
@@ -428,7 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DF0ABCE2AD99D49005118D6 /* Preview Assets.xcassets in Resources */,
-				0DCE524C2B8E5C54000091D2 /* GoogleService-Info.plist in Resources */,
+				0DB0FC852BA0C31E0067975B /* GoogleService-Info.plist in Resources */,
 				0DF0ABCB2AD99D49005118D6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,7 +458,7 @@
 				0D5802512B1525BC00CD9BFD /* RegisterView.swift in Sources */,
 				0DCE52642B8FBB8B000091D2 /* UserManager.swift in Sources */,
 				0DF0ABF32AD99EF1005118D6 /* SignInEmailView.swift in Sources */,
-				0D7851BA2B5AE1B6002CF44B /* ProfessorProfile.swift in Sources */,
+				0D7851BA2B5AE1B6002CF44B /* StudentProfile.swift in Sources */,
 				0DF0ABF92AD9A013005118D6 /* CameraView.swift in Sources */,
 				0DCE525D2B8FB58A000091D2 /* SignInEmailViewModel.swift in Sources */,
 				0D5802552B1525DB00CD9BFD /* ProfessorView.swift in Sources */,
@@ -651,7 +651,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -682,7 +682,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

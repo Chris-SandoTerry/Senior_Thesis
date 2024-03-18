@@ -18,6 +18,7 @@ struct DBUser: Codable {
     let dateCreated: Date?
     let isTeacher: Bool?
     let isStudent: Bool?
+    let qrCode: String?
     
     
     init(auth: AuthDataResultModel) {
@@ -27,6 +28,7 @@ struct DBUser: Codable {
         self.dateCreated = Date()
         self.isTeacher = false
         self.isStudent = false
+        self.qrCode = auth.qrCode
     }
     
     init (
@@ -35,7 +37,8 @@ struct DBUser: Codable {
         photoUrl: String? = nil,
         dateCreated: Date?,
         isTeacher: Bool? = nil,
-        isStudent: Bool? = nil
+        isStudent: Bool? = nil,
+        qrCode: String? = nil
     ) {
         self.userId = userId
         self.email = email
@@ -43,6 +46,7 @@ struct DBUser: Codable {
         self.dateCreated = dateCreated
         self.isTeacher = isTeacher
         self.isStudent = isStudent
+        self.qrCode = qrCode
     }
 //    
 //    func toggleTeahcerStatus() -> DBUser{
@@ -85,6 +89,7 @@ struct DBUser: Codable {
         case dateCreated = "data_created"
         case isTeacher = "is_teacher"
         case isStudent = "is_student"
+        case qrCode = "qrCode"
     }
     
     
@@ -96,6 +101,7 @@ struct DBUser: Codable {
         self.dateCreated = try container.decodeIfPresent(Date.self, forKey: .dateCreated)
         self.isTeacher = try container.decodeIfPresent(Bool.self, forKey: .isTeacher)
         self.isStudent = try container.decodeIfPresent(Bool.self, forKey: .isStudent)
+        self.qrCode = try container.decodeIfPresent(String.self, forKey: .qrCode)
     }
     
     
@@ -108,6 +114,7 @@ struct DBUser: Codable {
         try container.encodeIfPresent(self.dateCreated, forKey: .dateCreated)
         try container.encodeIfPresent(self.isTeacher, forKey: .isTeacher)
         try container.encodeIfPresent(self.isStudent, forKey: .isStudent)
+        try container.encodeIfPresent(self.qrCode, forKey: .qrCode)
     }
     
   
@@ -199,10 +206,16 @@ final class UserManager {
 //        try userDocument(userId: user.userId).setData(from: user, merge: true)
 //    }
     
-    
     func updateUserStudentStatus(userId: String,isStudent: Bool) async throws {
         let data: [String:Any] = [
             DBUser.CodingKeys.isStudent.rawValue : isStudent
+        ]
+        try  await userDocument(userId: userId).updateData(data)
+    }
+    
+    func updateUserQRCode(userId: String,qrCode: String) async throws {
+        let data: [String:Any] = [
+            DBUser.CodingKeys.qrCode.rawValue : qrCode
         ]
         try  await userDocument(userId: userId).updateData(data)
     }

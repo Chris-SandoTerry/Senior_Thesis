@@ -15,7 +15,7 @@ struct ProfessorScene: View
     var body: some View 
     {
         List(uni, id: \.self) { university in
-            NavigationLink(destination: ProfessorProfile(showSingnedInView: .constant(false)).navigationBarBackButtonHidden(true)) 
+            NavigationLink(destination: StudentProfile(showSingnedInView: .constant(false)).navigationBarBackButtonHidden(true)) 
             {
                 Image(systemName: "star.fill")
                 Text(university)

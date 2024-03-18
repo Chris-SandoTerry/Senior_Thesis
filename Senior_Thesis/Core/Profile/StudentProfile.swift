@@ -10,7 +10,7 @@ import SwiftUI
 import MapKit
 
 @MainActor
-final class ProfessorViewModel: ObservableObject {
+final class StudentViewModel: ObservableObject {
     
     @Published private(set) var user: DBUser? = nil
     
@@ -39,11 +39,11 @@ final class ProfessorViewModel: ObservableObject {
     
 }
 
-struct ProfessorProfile: View {
+struct StudentProfile: View {
     @State private var selection = 0
     @State private var showloginscreen = false
     @Binding var showSingnedInView: Bool
-    @StateObject private var viewModel = ProfessorViewModel()
+    @StateObject private var viewModel = StudentViewModel()
     
     var body: some View {
         TabView(selection: $selection) {
@@ -55,11 +55,11 @@ struct ProfessorProfile: View {
                         .frame(width: 100, height: 100)
                         .clipShape(Circle())
                     
-                    Text("Chris")
-                        .font(.title)
-                        .bold()
+                    if let email = user?.email {
+                        Text("Email: \(email.description.capitalized)  ")
+                    }
                     
-                    Text("Professor")
+                    Text("Student")
                         .font(.headline)
                         .foregroundColor(.gray)
                     
@@ -112,5 +112,5 @@ struct ProfessorProfile: View {
 }
 
 #Preview {
-    ProfessorProfile(showSingnedInView: .constant(false))
+    StudentProfile(showSingnedInView: .constant(false))
 }
