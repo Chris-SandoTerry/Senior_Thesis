@@ -38,27 +38,43 @@ final class ProfileViewModel: ObservableObject {
     
     func toggleQrCode() {
         guard let user else{return}
-        let currentQrCode = QrCodePrompt(onQRCodeGenerated: { content in
-            self.qrCodeContent = content
-            //let randomQrCode = QrCodePrompt()
-            // var newQrCode = randomQrCode.generateRandomString() ?? "First Qr Code"
-            //randomQrCode.generateQRCode(from: newQrCode)
-            //_ = user.qrCode ?? "First Qr Code"
-            Task{
-                try await UserManager.shared.updateUserQRCode(userId: user.userId,qrCode: content)
-                self.user = try await UserManager.shared.getUser(userId: user.userId)
-            }
-        })
+        let randomQrCode = QrCodePrompt()
+        var newQrCode = randomQrCode.generateRandomString()
+        //randomQrCode.generateQRCode(from: newQrCode)
+        //_ = user.qrCode ?? "First Qr Code"
+        Task{
+            try await UserManager.shared.updateUserQRCode(userId: user.userId,qrCode: newQrCode)
+            self.user = try await UserManager.shared.getUser(userId: user.userId)
+        }
         
     }
+    
+    func addUserProfessor(text: String) {
+        guard let user else{ return }
         
+        Task {
+            try await UserManager.shared.addUserProfessor(userId: user.userId, professor: text)
+            self.user = try await UserManager.shared.getUser(userId: user.userId)
+        }
     }
+    
+    func addUserStudent(text: String) {
+        guard let user else{ return }
+        
+        Task {
+            try await UserManager.shared.addUserStudent(userId:user.userId,student: text)
+            self.user = try await UserManager.shared.getUser(userId: user.userId)
+        }
+    }
+
+}
     
     struct ProfileView: View {
         
         @StateObject private var viewModel = ProfileViewModel()
         @Binding var showSingnedInView: Bool
         @State private var selection = 0
+        @State private var isSettingsViewPresented = false
         
         
         var body: some View {
@@ -78,11 +94,13 @@ final class ProfileViewModel: ObservableObject {
                         }
                         Button {
                             viewModel.toggleTeacherStatus()
+                            viewModel.addUserProfessor(text:"Professor")
                         } label: {
                             Text("User is a Teacher: \((user.isTeacher ?? false).description.capitalized) ")
                         }
                         Button {
                             viewModel.toggleStudentStatus()
+                            viewModel.addUserStudent(text:"Student")
                         } label: {
                             Text("User is a Student: \((user.isStudent ?? false).description.capitalized) ")
                         }
@@ -91,23 +109,12 @@ final class ProfileViewModel: ObservableObject {
                         } label: {
                             Text("Qr Code \(user.qrCode ?? "Defualt Qr Code")" )
                         }
+                      
                     }
                     
                 }
                 .task  {
                     try? await viewModel.loadcurrentUser()
-                }
-                .navigationTitle("Profile")
-                .toolbar{
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink {
-                            SettingsView(showSignedInView: $showSingnedInView)
-                        } label: {
-                            Image(systemName: "gear")
-                                .font(.headline)
-                        }
-                        
-                    }
                 }
                 .tabItem {
                     Image(systemName: "person.fill")
@@ -128,6 +135,12 @@ final class ProfileViewModel: ObservableObject {
                         Text("Qr Code")
                     }
                     .tag(2)
+                SettingsView(showSignedInView: $showSingnedInView)
+                    .tabItem {
+                        Image(systemName: "gear")
+                        Text("Settings")
+                    }
+                    .tag(3)
                 
             }
             
@@ -138,4 +151,5 @@ final class ProfileViewModel: ObservableObject {
             ProfileView(showSingnedInView: .constant(false))
         }
     }
+    
 

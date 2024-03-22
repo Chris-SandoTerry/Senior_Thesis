@@ -15,6 +15,7 @@ struct AuthDataResultModel
     let email: String?
     let photoUrl: String? 
     let qrCode: String?
+   // let isProfessorOrisStudent: [String]
     
     init(user:User)
     {
@@ -22,6 +23,7 @@ struct AuthDataResultModel
         self.email = user.email
         self.photoUrl = user.photoURL?.absoluteString
         self.qrCode = user.photoURL?.absoluteString
+        
     }
 }
 

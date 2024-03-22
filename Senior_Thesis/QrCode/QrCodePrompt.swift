@@ -11,29 +11,26 @@ import SwiftUI
 
 struct QrCodePrompt: View {
     @State private var qrCodeContent = "First Qr Code"
-        var onQRCodeGenerated: ((String) -> Void)? // Closure to pass the generated QR code content
-        
-        var body: some View {
-            VStack {
-                if let qrCodeImage = generateQRCode(from: qrCodeContent) {
-                    Image(uiImage: qrCodeImage)
-                        .renderingMode(.original)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 200, height: 200)
-                } else {
-                    Text("Unable to generate QR code")
-                }
 
-                Button("Generate New QR Code") {
-                    qrCodeContent = generateRandomString()
-                    if let onQRCodeGenerated = onQRCodeGenerated {
-                        onQRCodeGenerated(qrCodeContent)
-                    }
-                }
+    var body: some View {
+        VStack {
+            if let qrCodeImage = generateQRCode(from: qrCodeContent) {
+                Image(uiImage: qrCodeImage)
+                    .renderingMode(.original)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 200, height: 200)
+            } else {
+                Text("Unable to generate QR code")
             }
-            .padding()
+
+            Button("Generate New QR Code") {
+               
+                qrCodeContent = generateRandomString() 
+            }
         }
+        .padding()
+    }
 
     func generateQRCode(from string: String) -> UIImage? {
         let data = string.data(using: String.Encoding.ascii)

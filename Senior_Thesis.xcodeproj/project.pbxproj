@@ -17,6 +17,7 @@
 		0D7851BA2B5AE1B6002CF44B /* StudentProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7851B92B5AE1B5002CF44B /* StudentProfile.swift */; };
 		0D7851BC2B5AE224002CF44B /* QrCodePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7851BB2B5AE224002CF44B /* QrCodePrompt.swift */; };
 		0D7851BE2B5AE7BF002CF44B /* QrCodeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7851BD2B5AE7BF002CF44B /* QrCodeImage.swift */; };
+		0D8929E62BAA3A8F00D2E620 /* Classess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8929E52BAA3A8F00D2E620 /* Classess.swift */; };
 		0D89B2C62B85132200933136 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0D89B2C52B85132200933136 /* FirebaseAuth */; };
 		0D89B2C92B851E4300933136 /* AuthentaticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D89B2C82B851E4300933136 /* AuthentaticationManager.swift */; };
 		0DAE54D32B84184400DC88EF /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0DAE54D22B84184400DC88EF /* FirebaseAnalytics */; };
@@ -80,6 +81,7 @@
 		0D7851B92B5AE1B5002CF44B /* StudentProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentProfile.swift; sourceTree = "<group>"; };
 		0D7851BB2B5AE224002CF44B /* QrCodePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodePrompt.swift; sourceTree = "<group>"; };
 		0D7851BD2B5AE7BF002CF44B /* QrCodeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeImage.swift; sourceTree = "<group>"; };
+		0D8929E52BAA3A8F00D2E620 /* Classess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classess.swift; sourceTree = "<group>"; };
 		0D89B2C82B851E4300933136 /* AuthentaticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentaticationManager.swift; sourceTree = "<group>"; };
 		0DB0FC842BA0C31E0067975B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0DCE523D2B863A77000091D2 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				0DCE524E2B8E6080000091D2 /* Utilities.swift */,
+				0D8929E52BAA3A8F00D2E620 /* Classess.swift */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				0D89B2C92B851E4300933136 /* AuthentaticationManager.swift in Sources */,
 				0D5802592B1525FB00CD9BFD /* Universities.swift in Sources */,
 				0D7851BE2B5AE7BF002CF44B /* QrCodeImage.swift in Sources */,
+				0D8929E62BAA3A8F00D2E620 /* Classess.swift in Sources */,
 				0D7851BC2B5AE224002CF44B /* QrCodePrompt.swift in Sources */,
 				0DCE52402B864376000091D2 /* SettingsView.swift in Sources */,
 			);

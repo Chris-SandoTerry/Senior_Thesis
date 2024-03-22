@@ -16,6 +16,8 @@ struct DBUser: Codable {
     let email: String?
     let photoUrl: String?
     let dateCreated: Date?
+    let isProfessors:[String]?
+    let isStudents:[String]?
     let isTeacher: Bool?
     let isStudent: Bool?
     let qrCode: String?
@@ -29,6 +31,8 @@ struct DBUser: Codable {
         self.isTeacher = false
         self.isStudent = false
         self.qrCode = auth.qrCode
+        self.isProfessors = [auth.uid]
+        self.isStudents = [auth.uid]
     }
     
     init (
@@ -38,7 +42,9 @@ struct DBUser: Codable {
         dateCreated: Date?,
         isTeacher: Bool? = nil,
         isStudent: Bool? = nil,
-        qrCode: String? = nil
+        qrCode: String? = nil,
+        isProfessors: [String]?,
+        isStudents: [String]?
     ) {
         self.userId = userId
         self.email = email
@@ -47,6 +53,8 @@ struct DBUser: Codable {
         self.isTeacher = isTeacher
         self.isStudent = isStudent
         self.qrCode = qrCode
+        self.isProfessors = isProfessors
+        self.isStudents = isStudents
     }
 //    
 //    func toggleTeahcerStatus() -> DBUser{
@@ -90,6 +98,8 @@ struct DBUser: Codable {
         case isTeacher = "is_teacher"
         case isStudent = "is_student"
         case qrCode = "qrCode"
+        case isProfessors = "Professors"
+        case isStudents = "Students"
     }
     
     
@@ -102,6 +112,8 @@ struct DBUser: Codable {
         self.isTeacher = try container.decodeIfPresent(Bool.self, forKey: .isTeacher)
         self.isStudent = try container.decodeIfPresent(Bool.self, forKey: .isStudent)
         self.qrCode = try container.decodeIfPresent(String.self, forKey: .qrCode)
+        self.isProfessors = try container.decodeIfPresent([String].self, forKey: .isProfessors)
+        self.isStudents = try container.decodeIfPresent([String].self, forKey: .isStudents)
     }
     
     
@@ -115,6 +127,8 @@ struct DBUser: Codable {
         try container.encodeIfPresent(self.isTeacher, forKey: .isTeacher)
         try container.encodeIfPresent(self.isStudent, forKey: .isStudent)
         try container.encodeIfPresent(self.qrCode, forKey: .qrCode)
+        try container.encodeIfPresent(self.isStudents, forKey: .isStudents)
+        try container.encodeIfPresent(self.isProfessors, forKey: .isProfessors)
     }
     
   
@@ -216,6 +230,20 @@ final class UserManager {
     func updateUserQRCode(userId: String,qrCode: String) async throws {
         let data: [String:Any] = [
             DBUser.CodingKeys.qrCode.rawValue : qrCode
+        ]
+        try  await userDocument(userId: userId).updateData(data)
+    }
+   
+    func addUserStudent(userId: String, student: String) async throws {
+        let data: [String:Any] = [
+            DBUser.CodingKeys.isStudents.rawValue : [student]
+        ]
+        try  await userDocument(userId: userId).updateData(data)
+    }
+    
+    func addUserProfessor(userId:String, professor: String)async throws {
+        let data: [String:Any] = [
+            DBUser.CodingKeys.isProfessors.rawValue : [professor]
         ]
         try  await userDocument(userId: userId).updateData(data)
     }

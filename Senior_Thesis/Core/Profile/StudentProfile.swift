@@ -37,6 +37,15 @@ final class StudentViewModel: ObservableObject {
         }
     }
     
+    func addUserStudent(text: String) {
+        guard let user else{ return }
+        
+        Task {
+            try await UserManager.shared.addUserStudent(userId:user.userId,student: text)
+            self.user = try await UserManager.shared.getUser(userId: user.userId)
+        }
+    }
+    
 }
 
 struct StudentProfile: View {
@@ -47,44 +56,31 @@ struct StudentProfile: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            NavigationView {
-                VStack(spacing: 20) {
-                    let user = viewModel.user
+            List {
+                if let user = viewModel.user{
                     Image("SeniorPoject")
                         .resizable()
                         .frame(width: 100, height: 100)
                         .clipShape(Circle())
                     
-                    if let email = user?.email {
+                    if let email = user.email {
                         Text("Email: \(email.description.capitalized)  ")
                     }
                     
                     Text("Student")
                         .font(.headline)
                         .foregroundColor(.gray)
-                    
-                    
-                    Divider()
-                    
-
-                    Spacer()
-                    
-                }
-                .padding()
-                .navigationTitle("Profile")
-                .toolbar{
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink {
-                            SettingsView(showSignedInView: $showSingnedInView)
-                        } label: {
-                            Image(systemName: "gear")
-                                .font(.headline)
-                        }
-
+                    Button {
+                        viewModel.toggleStudentStatus()
+                        viewModel.addUserStudent(text: "Student")
+                        
+                    } label: {
+                        Text("User is:\((user.isStudents ?? []).joined(separator: ", "))").frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }
-
-
+            }
+            .task {
+                try? await viewModel.loadcurrentUser()
             }
             .tabItem {
                 Image(systemName: "person.fill")
@@ -98,13 +94,19 @@ struct StudentProfile: View {
                     Text("Classes")
                 }
                 .tag(1)
-
+            
             QrCodeImage()
                 .tabItem {
                     Image(systemName: "square.and.arrow.up.fill")
                     Text("Qr Code")
                 }
                 .tag(2)
+            SettingsView(showSignedInView: $showSingnedInView)
+                .tabItem {
+                    Image(systemName: "gear")
+                    Text("Settings")
+                }
+                .tag(3)
             
             
         }

@@ -17,8 +17,8 @@ struct RootView: View {
             if !ShowSignedInView{
                 NavigationStack
                 {
-                  
-                  ProfileView(showSingnedInView: $ShowSignedInView)//profileView
+                  RegisterView(showSingnedInView: $ShowSignedInView)
+                 //ProfileView(showSingnedInView: $ShowSignedInView)//profileView
                 }
             }
             
