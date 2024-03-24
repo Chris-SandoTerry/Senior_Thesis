@@ -11,7 +11,6 @@ import SwiftUI
 final class ProfileViewModel: ObservableObject {
     
     @Published private(set) var user: DBUser? = nil
-    @State private var qrCodeContent: String = ""
     
     func loadcurrentUser() async throws {
         let authDataResult = try  AuthentaticationManager.shared.getAuthenticatedUser()

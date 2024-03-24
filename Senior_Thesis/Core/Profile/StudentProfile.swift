@@ -95,10 +95,10 @@ struct StudentProfile: View {
                 }
                 .tag(1)
             
-            QrCodeImage()
+            CameraViewDemo()
                 .tabItem {
-                    Image(systemName: "square.and.arrow.up.fill")
-                    Text("Qr Code")
+                    Image(systemName: "camera")
+                    Text("Scan Qr")
                 }
                 .tag(2)
             SettingsView(showSignedInView: $showSingnedInView)

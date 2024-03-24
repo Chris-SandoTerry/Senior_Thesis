@@ -21,6 +21,7 @@ struct DBUser: Codable {
     let isTeacher: Bool?
     let isStudent: Bool?
     let qrCode: String?
+    let scannedQr: [String]?
     
     
     init(auth: AuthDataResultModel) {
@@ -33,6 +34,7 @@ struct DBUser: Codable {
         self.qrCode = auth.qrCode
         self.isProfessors = [auth.uid]
         self.isStudents = [auth.uid]
+        self.scannedQr = [auth.uid]
     }
     
     init (
@@ -44,7 +46,8 @@ struct DBUser: Codable {
         isStudent: Bool? = nil,
         qrCode: String? = nil,
         isProfessors: [String]?,
-        isStudents: [String]?
+        isStudents: [String]?,
+        scannedQr: [String]?
     ) {
         self.userId = userId
         self.email = email
@@ -55,41 +58,9 @@ struct DBUser: Codable {
         self.qrCode = qrCode
         self.isProfessors = isProfessors
         self.isStudents = isStudents
+        self.scannedQr = scannedQr
     }
-//    
-//    func toggleTeahcerStatus() -> DBUser{
-//        let currentValue = isTeacher ?? false
-//        return DBUser(
-//            userId: userId,
-//            email: email,
-//            photoUrl: photoUrl,
-//            dateCreated: dateCreated,
-//            isTeacher: !currentValue,
-//            isStudent: isStudent)
-//    }
-//    
-//    mutating func toggleTeahcerStatus() {
-//        let currentValue = isTeacher ?? false
-//        isTeacher = !currentValue
-//    }
-//    
-//    func toggleStudentStatus() -> DBUser {
-//        let currentValue = isStudent ?? false
-//        return DBUser(
-//            userId: userId,
-//            email: email,
-//            photoUrl: photoUrl,
-//            dataCreated: dataCreated,
-//            isTeacher: isTeacher,
-//            isStudent: !currentValue)
-//    }
-    
-//    mutating func toggleStudentStatus() {
-//        let currentValue = isStudent ?? false
-//        isStudent = !currentValue
-//    }
-//    
-    
+
     enum CodingKeys: String, CodingKey {
         case userId = "user_id"
         case email = "email"
@@ -100,6 +71,7 @@ struct DBUser: Codable {
         case qrCode = "qrCode"
         case isProfessors = "Professors"
         case isStudents = "Students"
+        case scannedQr = "ScannedQr"
     }
     
     
@@ -114,6 +86,7 @@ struct DBUser: Codable {
         self.qrCode = try container.decodeIfPresent(String.self, forKey: .qrCode)
         self.isProfessors = try container.decodeIfPresent([String].self, forKey: .isProfessors)
         self.isStudents = try container.decodeIfPresent([String].self, forKey: .isStudents)
+        self.scannedQr = try container.decodeIfPresent([String].self, forKey: .scannedQr)
     }
     
     
@@ -129,6 +102,7 @@ struct DBUser: Codable {
         try container.encodeIfPresent(self.qrCode, forKey: .qrCode)
         try container.encodeIfPresent(self.isStudents, forKey: .isStudents)
         try container.encodeIfPresent(self.isProfessors, forKey: .isProfessors)
+        try container.encodeIfPresent(self.scannedQr, forKey: .scannedQr)
     }
     
   
@@ -247,4 +221,13 @@ final class UserManager {
         ]
         try  await userDocument(userId: userId).updateData(data)
     }
+    
+    func addScannedQr(userId:String, qrCode: String)async throws {
+        let data: [String:Any] = [
+            DBUser.CodingKeys.scannedQr.rawValue : FieldValue.arrayUnion([qrCode]),
+        ]
+        try  await userDocument(userId: userId).updateData(data)
+    }
+    
+    
 }

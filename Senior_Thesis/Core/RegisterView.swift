@@ -82,15 +82,15 @@ struct RegisterView: View {
                         viewModel.addUserProfessor(text: "Professor")
                         isProfileViewPresented = true
                     } label: {
-                        Text("User is: \((user.isProfessors ?? []).joined(separator: ", "))")
+                        Text("User is: \((user.isProfessors ?? ["Professor"]).joined(separator: ", "))")
                     }
                     
                     Button {
                         viewModel.toggleStudentStatus()
                         viewModel.addUserStudent(text: "Student")
-                        isStudentProfilePresented = true 
+                        isStudentProfilePresented = true
                     } label: {
-                        Text("User is: \((user.isStudents ?? []).joined(separator: ", "))")
+                        Text("User is: \((user.isStudents ?? ["Student"]).joined(separator: ", "))")
                     }
                 }
             }
