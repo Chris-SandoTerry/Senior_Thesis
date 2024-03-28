@@ -10,4 +10,4 @@
 import Foundation
 
 let classlist =
-    ["Math","Science","English","History"]
+    ["Math"]

@@ -11,6 +11,8 @@ import SwiftUI
 final class ProfileViewModel: ObservableObject {
     
     @Published private(set) var user: DBUser? = nil
+    @Published private(set) var roster: [Professor] = []
+   
     
     func loadcurrentUser() async throws {
         let authDataResult = try  AuthentaticationManager.shared.getAuthenticatedUser()
@@ -65,7 +67,18 @@ final class ProfileViewModel: ObservableObject {
             self.user = try await UserManager.shared.getUser(userId: user.userId)
         }
     }
-
+    
+    func loadRoster() {
+            Task {
+                do {
+                    self.roster = try await UserManager.shared.getRoster()
+                } catch {
+                    print("Error loading roster: \(error)")
+                }
+            }
+        }
+    
+  
 }
     
     struct ProfileView: View {
@@ -76,9 +89,11 @@ final class ProfileViewModel: ObservableObject {
         @State private var isSettingsViewPresented = false
         
         
+        
         var body: some View {
             TabView(selection: $selection) {
                 List {
+                    
                     if let user = viewModel.user {
                         //Text("UserId: \(user.userId) ")
                         if let pfp = user.photoUrl
@@ -106,14 +121,24 @@ final class ProfileViewModel: ObservableObject {
                         Button {
                             viewModel.toggleQrCode()
                         } label: {
-                            Text("Qr Code \(user.qrCode ?? "Defualt Qr Code")" )
+                            Text("Qr Code \(user.qrCode ?? [])" )
                         }
-                      
+                        Section(header: Text("Roster")) {
+                                               ForEach(viewModel.roster, id: \.self) { student in
+                                                   Text(student.students)
+                                                   // Display other student information as needed
+                                               }
+                                           }
+                       
+                        
+                     
+                       
                     }
                     
                 }
                 .task  {
                     try? await viewModel.loadcurrentUser()
+                    await viewModel.loadRoster()
                 }
                 .tabItem {
                     Image(systemName: "person.fill")
