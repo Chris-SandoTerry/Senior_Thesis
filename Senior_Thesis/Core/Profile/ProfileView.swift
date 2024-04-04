@@ -11,7 +11,8 @@ import SwiftUI
 final class ProfileViewModel: ObservableObject {
     
     @Published private(set) var user: DBUser? = nil
-    @Published private(set) var roster: [Professor] = []
+    @Published private(set) var roster: UserDocument?  = nil
+
    
     
     func loadcurrentUser() async throws {
@@ -46,6 +47,7 @@ final class ProfileViewModel: ObservableObject {
         Task{
             try await UserManager.shared.updateUserQRCode(userId: user.userId,qrCode: newQrCode)
             self.user = try await UserManager.shared.getUser(userId: user.userId)
+            loadRoster()
         }
         
     }
@@ -67,109 +69,132 @@ final class ProfileViewModel: ObservableObject {
             self.user = try await UserManager.shared.getUser(userId: user.userId)
         }
     }
-    
     func loadRoster() {
-            Task {
-                do {
-                    self.roster = try await UserManager.shared.getRoster()
-                } catch {
-                    print("Error loading roster: \(error)")
+        // Load single roster data from Firestore
+        Task {
+            do {
+                let rosterData = try await UserManager.shared.getRosterData()
+                guard var singleUserDocument = rosterData.first else {
+                    // Handle case where no roster data is available
+                    return
                 }
+                // Set qrCodeMatchesCurrentUser based on whether the QR code matches
+                singleUserDocument.isMatch = singleUserDocument.ScannedQr == user?.qrCode
+                self.roster = singleUserDocument
+                self.objectWillChange.send()
+            } catch {
+                print("Error loading roster: \(error)")
+                // Handle error as needed
             }
         }
+    }
+
+
+        
     
   
 }
     
-    struct ProfileView: View {
-        
-        @StateObject private var viewModel = ProfileViewModel()
-        @Binding var showSingnedInView: Bool
-        @State private var selection = 0
-        @State private var isSettingsViewPresented = false
-        
-        
-        
-        var body: some View {
-            TabView(selection: $selection) {
-                List {
-                    
-                    if let user = viewModel.user {
-                        //Text("UserId: \(user.userId) ")
-                        if let pfp = user.photoUrl
-                        {
-                            Image("SeniorPoject")
-                                .resizable()
-                                .frame(width: 100, height: 100)
-                                .clipShape(Circle())
-                        }
-                        if let email = user.email {
-                            Text("Email: \(email.description.capitalized)  ")
-                        }
-                        Button {
-                            viewModel.toggleTeacherStatus()
-                            viewModel.addUserProfessor(text:"Professor")
-                        } label: {
-                            Text("User is a Teacher: \((user.isTeacher ?? false).description.capitalized) ")
-                        }
-                        Button {
-                            viewModel.toggleStudentStatus()
-                            viewModel.addUserStudent(text:"Student")
-                        } label: {
-                            Text("User is a Student: \((user.isStudent ?? false).description.capitalized) ")
-                        }
-                        Button {
-                            viewModel.toggleQrCode()
-                        } label: {
-                            Text("Qr Code \(user.qrCode ?? [])" )
-                        }
-                        Section(header: Text("Roster")) {
-                                               ForEach(viewModel.roster, id: \.self) { student in
-                                                   Text(student.students)
-                                                   // Display other student information as needed
-                                               }
-                                           }
-                       
-                        
-                     
-                       
+struct ProfileView: View {
+    
+    @StateObject private var viewModel = ProfileViewModel()
+    @ObservedObject var model = ViewModel()
+    @Binding var showSingnedInView: Bool
+    @State private var selection = 0
+    @State private var isSettingsViewPresented = false
+    
+    
+    
+    var body: some View {
+        TabView(selection: $selection) {
+            List {
+                
+                if let user = viewModel.user {
+                    //Text("UserId: \(user.userId) ")
+                    if let pfp = user.photoUrl
+                    {
+                        Image("SeniorPoject")
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                            .clipShape(Circle())
+                    }
+                    if let email = user.email {
+                        Text("Email: \(email.description.capitalized)  ")
+                    }
+                    Button {
+                        viewModel.toggleTeacherStatus()
+                        viewModel.addUserProfessor(text:"Professor")
+                    } label: {
+                        Text("User is a Teacher: \((user.isTeacher ?? false).description.capitalized) ")
+                    }
+                    Button {
+                        viewModel.toggleStudentStatus()
+                        viewModel.addUserStudent(text:"Student")
+                    } label: {
+                        Text("User is a Student: \((user.isStudent ?? false).description.capitalized) ")
+                    }
+                    Button {
+                        viewModel.toggleQrCode()
+                    } label: {
+                        Text("Qr Code \(user.qrCode ?? [""])" )
                     }
                     
+                    Section(header: Text("Roster")) {
+                        if let userDocument = viewModel.roster {
+                            
+                            Text(userDocument.email)
+                                .foregroundColor(userDocument.isMatch ? .green : .black)
+                        } else {
+                            Text("No roster data available")
+                        }
+                    }
+
+
+                   
+                  
+                    
                 }
-                .task  {
-                    try? await viewModel.loadcurrentUser()
-                    await viewModel.loadRoster()
-                }
-                .tabItem {
-                    Image(systemName: "person.fill")
-                    Text("Profile")
-                }
-                .tag(0)
                 
-                Classes()
-                    .tabItem {
-                        Image(systemName: "folder.fill")
-                        Text("Classes")
-                    }
-                    .tag(1)
-                
-                QrCodeImage()
-                    .tabItem {
-                        Image(systemName: "square.and.arrow.up.fill")
-                        Text("Qr Code")
-                    }
-                    .tag(2)
-                SettingsView(showSignedInView: $showSingnedInView)
-                    .tabItem {
-                        Image(systemName: "gear")
-                        Text("Settings")
-                    }
-                    .tag(3)
+              
                 
             }
+            .task  {
+                try? await viewModel.loadcurrentUser()
+                viewModel.loadRoster()
+            }
+            .tabItem {
+                Image(systemName: "person.fill")
+                Text("Profile")
+            }
+            .tag(0)
+            
+            Classes()
+                .tabItem {
+                    Image(systemName: "folder.fill")
+                    Text("Classes")
+                }
+                .tag(1)
+            
+            QrCodeImage()
+                .tabItem {
+                    Image(systemName: "square.and.arrow.up.fill")
+                    Text("Qr Code")
+                }
+                .tag(2)
+            SettingsView(showSignedInView: $showSingnedInView)
+                .tabItem {
+                    Image(systemName: "gear")
+                    Text("Settings")
+                }
+                .tag(3)
             
         }
     }
+   
+}
+
+            
+        
     #Preview {
         NavigationStack{
             ProfileView(showSingnedInView: .constant(false))

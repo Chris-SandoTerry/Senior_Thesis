@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D06E01F2BBBA1D300B7D5C6 /* RosterDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D06E01E2BBBA1D300B7D5C6 /* RosterDatabase.swift */; };
 		0D5802512B1525BC00CD9BFD /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5802502B1525BB00CD9BFD /* RegisterView.swift */; };
-		0D5802532B1525C900CD9BFD /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5802522B1525C900CD9BFD /* RegisterModel.swift */; };
 		0D5802552B1525DB00CD9BFD /* ProfessorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5802542B1525DB00CD9BFD /* ProfessorView.swift */; };
 		0D5802572B1525E100CD9BFD /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5802562B1525E100CD9BFD /* StudentView.swift */; };
-		0D5802592B1525FB00CD9BFD /* Universities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5802582B1525FB00CD9BFD /* Universities.swift */; };
 		0D59A7842B5893B30044F763 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D59A7832B5893B30044F763 /* Classes.swift */; };
 		0D59A7862B5895480044F763 /* ClassesLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D59A7852B5895480044F763 /* ClassesLogic.swift */; };
 		0D7851BA2B5AE1B6002CF44B /* StudentProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7851B92B5AE1B5002CF44B /* StudentProfile.swift */; };
@@ -72,11 +71,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D06E01E2BBBA1D300B7D5C6 /* RosterDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterDatabase.swift; sourceTree = "<group>"; };
 		0D5802502B1525BB00CD9BFD /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
-		0D5802522B1525C900CD9BFD /* RegisterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		0D5802542B1525DB00CD9BFD /* ProfessorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorView.swift; sourceTree = "<group>"; };
 		0D5802562B1525E100CD9BFD /* StudentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
-		0D5802582B1525FB00CD9BFD /* Universities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Universities.swift; sourceTree = "<group>"; };
 		0D59A7832B5893B30044F763 /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		0D59A7852B5895480044F763 /* ClassesLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesLogic.swift; sourceTree = "<group>"; };
 		0D7851B92B5AE1B5002CF44B /* StudentProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentProfile.swift; sourceTree = "<group>"; };
@@ -180,6 +178,7 @@
 			children = (
 				0DCE524E2B8E6080000091D2 /* Utilities.swift */,
 				0D8929E52BAA3A8F00D2E620 /* Classess.swift */,
+				0D06E01E2BBBA1D300B7D5C6 /* RosterDatabase.swift */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -277,8 +276,6 @@
 				0D8F5BC52B9F43E400EC4DAA /* QrCode */,
 				0D5802562B1525E100CD9BFD /* StudentView.swift */,
 				0D5802542B1525DB00CD9BFD /* ProfessorView.swift */,
-				0D5802522B1525C900CD9BFD /* RegisterModel.swift */,
-				0D5802582B1525FB00CD9BFD /* Universities.swift */,
 				0D59A7852B5895480044F763 /* ClassesLogic.swift */,
 				0D59A7832B5893B30044F763 /* Classes.swift */,
 				0DB0FC842BA0C31E0067975B /* GoogleService-Info.plist */,
@@ -469,6 +466,7 @@
 				0DF0ABF92AD9A013005118D6 /* CameraView.swift in Sources */,
 				0DCE525D2B8FB58A000091D2 /* SignInEmailViewModel.swift in Sources */,
 				0D5802552B1525DB00CD9BFD /* ProfessorView.swift in Sources */,
+				0D06E01F2BBBA1D300B7D5C6 /* RosterDatabase.swift in Sources */,
 				0DF0ABF12AD99EC0005118D6 /* SignUp.swift in Sources */,
 				0D5802572B1525E100CD9BFD /* StudentView.swift in Sources */,
 				0D59A7842B5893B30044F763 /* Classes.swift in Sources */,
@@ -479,13 +477,11 @@
 				0DCE523E2B863A78000091D2 /* RootView.swift in Sources */,
 				0DCE524F2B8E6080000091D2 /* Utilities.swift in Sources */,
 				0DCE525A2B8FB526000091D2 /* SignUpViewModel.swift in Sources */,
-				0D5802532B1525C900CD9BFD /* RegisterModel.swift in Sources */,
 				0DF0ABC92AD99D48005118D6 /* ContentView.swift in Sources */,
 				0DCE52512B8E7148000091D2 /* SignInGoogleHelper.swift in Sources */,
 				0DF0ABFD2AD9A15C005118D6 /* PageView.swift in Sources */,
 				0DF0ABC72AD99D48005118D6 /* Senior_ThesisApp.swift in Sources */,
 				0D89B2C92B851E4300933136 /* AuthentaticationManager.swift in Sources */,
-				0D5802592B1525FB00CD9BFD /* Universities.swift in Sources */,
 				0D7851BE2B5AE7BF002CF44B /* QrCodeImage.swift in Sources */,
 				0D8929E62BAA3A8F00D2E620 /* Classess.swift in Sources */,
 				0D7851BC2B5AE224002CF44B /* QrCodePrompt.swift in Sources */,

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 @MainActor
 final class ClassesViewModel: ObservableObject {
@@ -51,29 +52,29 @@ final class ClassesViewModel: ObservableObject {
         guard let user else{ return }
         
         Task {
-            try await UserManager.shared.addUserStudent(userId:user.userId,student: text)
+            try await RosterAttempt.shared.addUserStudent(userId:user.userId,student: text)
             self.user = try await UserManager.shared.getUser(userId: user.userId)
         }
     }
     
  
     
-    func loadRoster() {
-            Task {
-                do {
-                    self.roster = try await UserManager.shared.getRoster()
-                } catch {
-                    print("Error loading roster: \(error)")
-                }
-            }
-        }
+//    func loadRoster() {
+//            Task {
+//                do {
+//                    self.user = try await UserManager.shared.(userId: authDataResult.uid)
+//                } catch {
+//                    print("Error loading roster: \(error)")
+//                }
+//            }
+//        }
     
     func addUserStudentRoster() {
             guard let user = user else { return }
-        let roster = Senior_Thesis.Professor(students: user.email ?? "", qrCode: user.scannedQr, isMatch: false)
+        let roster = Senior_Thesis.Professor(id: "", students: user.email ?? "", qrCode: user.scannedQr, isMatch: false)
             Task {
                 do {
-                    try await UserManager.shared.addStudentRoster(userId: user.userId, student: roster)
+//                    try await UserManager.shared.addStudentRoster(userId: user.userId, student: roster)
                     //try await loadRoster()
                 } catch {
                     print("Error adding user to roster: \(error)")
@@ -81,6 +82,30 @@ final class ClassesViewModel: ObservableObject {
                 }
             }
         }
+    func addUserToRoster() {
+           Task {
+               do {
+                   // Fetch the current user
+                   guard let user = self.user else {
+                       return
+                   }
+                   
+                   // Create a Firestore document representing the user
+                   let userDocument = UserDocument(userId: user.userId, email: user.email ?? "",isMatch: false,ScannedQr: user.scannedQr ?? [""])
+                   
+                   // Add the user document to the "roster" collection in Firestore
+                   let db = Firestore.firestore()
+                   let userRef = db.collection("roster").document(user.userId)
+                   try await userRef.setData(from: userDocument)
+                   
+                   // Refresh the user data after adding to the roster
+                   self.user = try await UserManager.shared.getUser(userId: user.userId)
+               } catch {
+                   print("Error adding user to roster: \(error)")
+                   // Handle error as needed
+               }
+           }
+       }
 }
 
 struct Classes: View {
@@ -97,10 +122,10 @@ struct Classes: View {
             }
             if let user = _professor.user {
                 Button {
-                        _professor.addUserStudentRoster()
+                    _professor.addUserToRoster()
                    
                 } label: {
-                    Text("Join Professor roster: \(user.roster?.students ?? "")")
+                    Text("Join Professor roster: \(user.email ?? "")")
              }
            }
              

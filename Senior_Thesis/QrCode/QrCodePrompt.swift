@@ -15,18 +15,18 @@ struct QrCodePrompt: View {
     var body: some View {
         VStack {
             if let qrCodeImage = generateQRCode(from: qrCodeContent) {
-                Image(uiImage: qrCodeImage)
-                    .renderingMode(.original)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 200, height: 200)
-            } else {
-                Text("Unable to generate QR code")
-            }
+                   Image(uiImage: qrCodeImage)
+                       .renderingMode(.original)
+                       .resizable()
+                       .scaledToFit()
+                       .frame(width: 200, height: 200)
+               } else {
+                   Text("Unable to generate QR code")
+               }
 
             Button("Generate New QR Code") {
-               
-                qrCodeContent = generateRandomString() 
+                
+                qrCodeContent = generateRandomString()
             }
         }
         .padding()
@@ -54,6 +54,7 @@ struct QrCodePrompt: View {
 }
 
 struct QrCodePrompt_Previews: PreviewProvider {
+    
     static var previews: some View {
         QrCodePrompt()
     }

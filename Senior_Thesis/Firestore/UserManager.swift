@@ -6,19 +6,12 @@
 //
 
 import Foundation
+import Firebase
 import FirebaseFirestore
 import FirebaseFirestoreSwift
-import SwiftUI
 
-//Professor->user(student)-> qr Code
-struct Professor: Codable, Hashable{
-    let students: String
-    let qrCode: [String]?
-    let isMatch: Bool?
-}
 
 struct DBUser: Codable {
-    
     let userId: String
     let email: String?
     let photoUrl: String?
@@ -27,9 +20,9 @@ struct DBUser: Codable {
     let isStudents:[String]?
     let isTeacher: Bool?
     let isStudent: Bool?
-    let qrCode: [String]?
-    let scannedQr: [String]?
-    let roster: Professor?
+    var qrCode: [String]?
+    var scannedQr: [String]?
+   
     
     
     init(auth: AuthDataResultModel) {
@@ -43,7 +36,6 @@ struct DBUser: Codable {
         self.isProfessors = [auth.uid]
         self.isStudents = [auth.uid]
         self.scannedQr = [auth.uid]
-        self.roster = nil
     }
     
     init (
@@ -56,8 +48,7 @@ struct DBUser: Codable {
         qrCode: [String]?,
         isProfessors: [String]?,
         isStudents: [String]?,
-        scannedQr: [String]?,
-        roster: Professor? = nil
+        scannedQr: [String]?
     ) {
         self.userId = userId
         self.email = email
@@ -69,7 +60,6 @@ struct DBUser: Codable {
         self.isProfessors = isProfessors
         self.isStudents = isStudents
         self.scannedQr = scannedQr
-        self.roster = roster
     }
 
     enum CodingKeys: String, CodingKey {
@@ -83,7 +73,6 @@ struct DBUser: Codable {
         case isProfessors = "Professors"
         case isStudents = "Students"
         case scannedQr = "ScannedQr"
-        case roster = "roster"
     }
     
     
@@ -99,7 +88,6 @@ struct DBUser: Codable {
         self.isProfessors = try container.decodeIfPresent([String].self, forKey: .isProfessors)
         self.isStudents = try container.decodeIfPresent([String].self, forKey: .isStudents)
         self.scannedQr = try container.decodeIfPresent([String].self, forKey: .scannedQr)
-        self.roster = try container.decodeIfPresent(Professor.self, forKey: .roster)
     }
     
     
@@ -116,7 +104,6 @@ struct DBUser: Codable {
         try container.encodeIfPresent(self.isStudents, forKey: .isStudents)
         try container.encodeIfPresent(self.isProfessors, forKey: .isProfessors)
         try container.encodeIfPresent(self.scannedQr, forKey: .scannedQr)
-        try container.encodeIfPresent(self.roster, forKey: .roster)
     }
     
   
@@ -129,20 +116,10 @@ final class UserManager {
     static let shared = UserManager()
     private init() { }
     private let userCollection = Firestore.firestore().collection("users")
-    private let rosterCollection = Firestore.firestore().collection("roster")
     
     private func userDocument(userId: String) -> DocumentReference {
         userCollection.document(userId)
     }
-    
-    private func rosterDocument(userId: String) -> DocumentReference {
-        rosterCollection.document(userId)
-    }
-    
-//    public func addStudentToRoster(student: Professor) throws -> DocumentReference {
-//        let studentData = try Firestore.Encoder().encode(student)
-//        return rosterCollection.addDocument(data: studentData)
-//    }
     
     private let encoder: Firestore.Encoder = {
         let encoder = Firestore.Encoder()
@@ -161,11 +138,6 @@ final class UserManager {
     func createNewUser(user: DBUser) async throws {
       try  userDocument(userId: user.userId).setData(from: user, merge: false)
    }
-    
-    func createNewRoster(user: Professor) async throws {
-      try  userDocument(userId: user.students).setData(from: user, merge: false)
-   }
-
     
 
 //
@@ -189,14 +161,6 @@ final class UserManager {
     func getUser(userId: String) async throws -> DBUser {
          try await userDocument(userId: userId).getDocument(as: DBUser.self)
     }
-    
-    func getRoster() async throws -> [Professor] {
-            let querySnapshot = try await rosterCollection.getDocuments()
-            return try querySnapshot.documents.compactMap { document in
-                try document.data(as: Professor.self)
-            }
-        }
-    
     
 //    func getUser(userId: String) async throws -> DBUser {
 //        
@@ -267,22 +231,37 @@ final class UserManager {
         try  await userDocument(userId: userId).updateData(data)
     }
     
-    func addStudentRoster(userId:String, student: Professor)async throws {
-        guard let data = try? encoder.encode(student) else {
-            throw URLError(.badURL)
-        }
-        let dict: [String:Any] = [
-            DBUser.CodingKeys.roster.rawValue : data,
-        ]
-        try  await userDocument(userId: userId).updateData(dict)
-    }
+//    func addStudentRoster(userId:String, student: Professor)async throws {
+//        guard let data = try? encoder.encode(student) else {
+//            throw URLError(.badURL)
+//        }
+//        let dict: [String:Any] = [
+//            DBUser.CodingKeys.roster.rawValue : data,
+//        ]
+//        try  await userDocument(userId: userId).updateData(dict)
+//    }
+//    
+//    func removeStudentRoster(userId:String)async throws {
+//        let data: [String:Any?] = [
+//            DBUser.CodingKeys.scannedQr.rawValue : nil
+//        ]
+//        try  await userDocument(userId: userId).updateData(data as [AnyHashable : Any])
+//    }
     
-    func removeStudentRoster(userId:String)async throws {
-        let data: [String:Any?] = [
-            DBUser.CodingKeys.scannedQr.rawValue : nil
-        ]
-        try  await userDocument(userId: userId).updateData(data as [AnyHashable : Any])
-    }
+        func getRosterData() async throws -> [UserDocument] {
+                let db = Firestore.firestore()
+                let snapshot = try await db.collection("roster").getDocuments()
+                var rosterData: [UserDocument] = []
+
+                for document in snapshot.documents {
+                    if let userDocument = try? document.data(as: UserDocument.self) {
+                        rosterData.append(userDocument)
+                    }
+                }
+
+                return rosterData
+            }
     
-    
+
 }
+
