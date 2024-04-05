@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct QrCodePrompt: View {
-    @State private var qrCodeContent = "First Qr Code"
+    @State private var qrCodeContent = "First Qr Code5"
 
     var body: some View {
         VStack {

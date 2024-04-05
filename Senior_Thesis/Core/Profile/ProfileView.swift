@@ -41,13 +41,11 @@ final class ProfileViewModel: ObservableObject {
     func toggleQrCode() {
         guard let user else{return}
         let randomQrCode = QrCodePrompt()
-        var newQrCode = randomQrCode.generateRandomString()
-        //randomQrCode.generateQRCode(from: newQrCode)
-        //_ = user.qrCode ?? "First Qr Code"
+        var newQrCode = "First Qr Code5"//randomQrCode.generateRandomString()
         Task{
+
             try await UserManager.shared.updateUserQRCode(userId: user.userId,qrCode: newQrCode)
             self.user = try await UserManager.shared.getUser(userId: user.userId)
-            loadRoster()
         }
         
     }
@@ -74,13 +72,31 @@ final class ProfileViewModel: ObservableObject {
         Task {
             do {
                 let rosterData = try await UserManager.shared.getRosterData()
-                guard var singleUserDocument = rosterData.first else {
-                    // Handle case where no roster data is available
+                guard let user = user, let currentUserQRCode = user.qrCode else {
+                    // User or user's QR code is nil, cannot compare, so return
                     return
                 }
-                // Set qrCodeMatchesCurrentUser based on whether the QR code matches
-                singleUserDocument.isMatch = singleUserDocument.ScannedQr == user?.qrCode
-                self.roster = singleUserDocument
+
+                if let singleUserDocument = rosterData.first {
+                    // Combine elements of ScannedQr array into a single string
+                    let scannedQRString = singleUserDocument.ScannedQr?.joined(separator: "")
+                    // Access the most recent element in the array
+                    let mostRecentScannedQR = singleUserDocument.ScannedQr?.last ?? ""
+                    
+                    print("Scanned QR Code (Combined): \(scannedQRString ?? "error")")
+                    print("Most Recent Scanned QR Code: \(mostRecentScannedQR)")
+
+                    let isMatch = currentUserQRCode.contains { $0 == mostRecentScannedQR }
+
+                    // Update isMatch property and roster
+                    var updatedDocument = singleUserDocument
+                    updatedDocument.isMatch = isMatch
+                    self.roster = updatedDocument
+                } else {
+                   
+                    self.roster = nil
+                }
+                // Notify subscribers that the object is changed
                 self.objectWillChange.send()
             } catch {
                 print("Error loading roster: \(error)")
@@ -90,8 +106,7 @@ final class ProfileViewModel: ObservableObject {
     }
 
 
-        
-    
+
   
 }
     
@@ -120,18 +135,6 @@ struct ProfileView: View {
                     }
                     if let email = user.email {
                         Text("Email: \(email.description.capitalized)  ")
-                    }
-                    Button {
-                        viewModel.toggleTeacherStatus()
-                        viewModel.addUserProfessor(text:"Professor")
-                    } label: {
-                        Text("User is a Teacher: \((user.isTeacher ?? false).description.capitalized) ")
-                    }
-                    Button {
-                        viewModel.toggleStudentStatus()
-                        viewModel.addUserStudent(text:"Student")
-                    } label: {
-                        Text("User is a Student: \((user.isStudent ?? false).description.capitalized) ")
                     }
                     Button {
                         viewModel.toggleQrCode()
