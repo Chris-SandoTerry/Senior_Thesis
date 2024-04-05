@@ -96,11 +96,11 @@ final class ProfileViewModel: ObservableObject {
                    
                     self.roster = nil
                 }
-                // Notify subscribers that the object is changed
+                
                 self.objectWillChange.send()
             } catch {
                 print("Error loading roster: \(error)")
-                // Handle error as needed
+               
             }
         }
     }
@@ -139,7 +139,8 @@ struct ProfileView: View {
                     Button {
                         viewModel.toggleQrCode()
                     } label: {
-                        Text("Qr Code \(user.qrCode ?? [""])" )
+                        //Text("Qr Code \(user.qrCode ?? [""])" )
+                        //uncomment when testing
                     }
                     
                     Section(header: Text("Roster")) {
@@ -152,10 +153,6 @@ struct ProfileView: View {
                         }
                     }
 
-
-                   
-                  
-                    
                 }
                 
               
