@@ -10,8 +10,10 @@ import Firebase
 
 struct UserDocument: Decodable, Encodable {
     let userId: String
+    let userName: String
     let email: String
     var isMatch: Bool
+    let dateCreated: Date?
     let ScannedQr: [String]?
     
     
@@ -20,6 +22,8 @@ struct UserDocument: Decodable, Encodable {
         case email = "email"
         case isMatch = "isMatch"
         case ScannedQr = "ScannedQr"
+        case userName = "userName"
+        case dateCreated
        
     }
 }

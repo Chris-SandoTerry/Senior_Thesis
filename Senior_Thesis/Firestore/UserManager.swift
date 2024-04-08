@@ -14,6 +14,7 @@ import FirebaseFirestoreSwift
 struct DBUser: Codable {
     let userId: String
     let email: String?
+    let userName: String?
     let photoUrl: String?
     let dateCreated: Date?
     let isProfessors:[String]?
@@ -36,6 +37,7 @@ struct DBUser: Codable {
         self.isProfessors = [auth.uid]
         self.isStudents = [auth.uid]
         self.scannedQr = [auth.uid]
+        self.userName = auth.userName
     }
     
     init (
@@ -48,7 +50,8 @@ struct DBUser: Codable {
         qrCode: [String]?,
         isProfessors: [String]?,
         isStudents: [String]?,
-        scannedQr: [String]?
+        scannedQr: [String]?,
+        userName: String?
     ) {
         self.userId = userId
         self.email = email
@@ -60,6 +63,7 @@ struct DBUser: Codable {
         self.isProfessors = isProfessors
         self.isStudents = isStudents
         self.scannedQr = scannedQr
+        self.userName = userName
     }
 
     enum CodingKeys: String, CodingKey {
@@ -73,6 +77,7 @@ struct DBUser: Codable {
         case isProfessors = "Professors"
         case isStudents = "Students"
         case scannedQr = "ScannedQr"
+        case userName = "UserName"
     }
     
     
@@ -88,6 +93,7 @@ struct DBUser: Codable {
         self.isProfessors = try container.decodeIfPresent([String].self, forKey: .isProfessors)
         self.isStudents = try container.decodeIfPresent([String].self, forKey: .isStudents)
         self.scannedQr = try container.decodeIfPresent([String].self, forKey: .scannedQr)
+        self.userName = try container.decodeIfPresent(String.self, forKey: .userName)
     }
     
     
@@ -104,6 +110,7 @@ struct DBUser: Codable {
         try container.encodeIfPresent(self.isStudents, forKey: .isStudents)
         try container.encodeIfPresent(self.isProfessors, forKey: .isProfessors)
         try container.encodeIfPresent(self.scannedQr, forKey: .scannedQr)
+        try container.encodeIfPresent(self.userName, forKey: .userName)
     }
     
   

@@ -38,17 +38,7 @@ final class ProfileViewModel: ObservableObject {
         }
     }
     
-    func toggleQrCode() {
-        guard let user else{return}
-        let randomQrCode = QrCodePrompt()
-        var newQrCode = "First Qr Code5"//randomQrCode.generateRandomString()
-        Task{
-
-            try await UserManager.shared.updateUserQRCode(userId: user.userId,qrCode: newQrCode)
-            self.user = try await UserManager.shared.getUser(userId: user.userId)
-        }
-        
-    }
+ 
     
     func addUserProfessor(text: String) {
         guard let user else{ return }
@@ -104,6 +94,8 @@ final class ProfileViewModel: ObservableObject {
             }
         }
     }
+    
+   
 
 
 
@@ -117,43 +109,47 @@ struct ProfileView: View {
     @Binding var showSingnedInView: Bool
     @State private var selection = 0
     @State private var isSettingsViewPresented = false
+     
     
+    func formattedDate(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        formatter.timeZone = TimeZone.current // Set the time zone to current
+        return formatter.string(from: date)
+    }
     
     
     var body: some View {
         TabView(selection: $selection) {
             List {
                 
-                if let user = viewModel.user {
-                    //Text("UserId: \(user.userId) ")
-                    if let pfp = user.photoUrl
-                    {
-                        Image("SeniorPoject")
-                            .resizable()
-                            .frame(width: 100, height: 100)
-                            .clipShape(Circle())
-                    }
-                    if let email = user.email {
-                        Text("Email: \(email.description.capitalized)  ")
-                    }
-                    Button {
-                        viewModel.toggleQrCode()
-                    } label: {
-                        //Text("Qr Code \(user.qrCode ?? [""])" )
-                        //uncomment when testing
-                    }
+                Section(header: Text("Professor")) {
+                              if let user = viewModel.user, let name = user.userName {
+                                  Text("\(name.capitalized)")
+                                      .foregroundColor(.blue) // Adjust the color as needed
+                              } else {
+                                  Text("No professor data available")
+                                      .foregroundColor(.red) // Adjust the color as needed
+                              }
+                          }
                     
                     Section(header: Text("Roster")) {
-                        if let userDocument = viewModel.roster {
-                            
-                            Text(userDocument.email)
-                                .foregroundColor(userDocument.isMatch ? .green : .black)
-                        } else {
-                            Text("No roster data available")
-                        }
-                    }
-
-                }
+                                   if let userDocument = viewModel.roster {
+                                       // Display username and dateCreated
+                                       VStack(alignment: .leading) {
+                                           Text("\(userDocument.userName)")
+                                           if let dateCreated = userDocument.dateCreated {
+                                               Text("\(formattedDate(date: dateCreated))")
+                                           } else {
+                                               Text("Time scanned: N/A")
+                                           }
+                                       }
+                                       .foregroundColor(userDocument.isMatch ? .green : .black)
+                                   } else {
+                                       Text("No roster data available")
+                                   }
+                               }
+                
                 
               
                 

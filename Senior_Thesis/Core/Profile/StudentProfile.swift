@@ -57,26 +57,17 @@ struct StudentProfile: View {
     var body: some View {
         TabView(selection: $selection) {
             List {
+                Text("Student")
+                    .font(.headline)
+                    .foregroundColor(.gray)
+                
                 if let user = viewModel.user{
-                    Image("SeniorPoject")
-                        .resizable()
-                        .frame(width: 100, height: 100)
-                        .clipShape(Circle())
-                    
-                    if let email = user.email {
-                        Text("Email: \(email.description.capitalized)  ")
+                    if let name = user.userName {
+                        Text("\(name.description.capitalized) ")
                     }
                     
-                    Text("Student")
-                        .font(.headline)
-                        .foregroundColor(.gray)
-                    Button {
-                        viewModel.toggleStudentStatus()
-                        viewModel.addUserStudent(text: "Student")
-                        
-                    } label: {
-                        Text("User is:\((user.isStudents ?? []).joined(separator: ", "))").frame(maxWidth: .infinity, alignment: .leading)
-                    }
+                   
+
                 }
             }
             .task {

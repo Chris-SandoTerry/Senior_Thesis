@@ -91,7 +91,7 @@ final class ClassesViewModel: ObservableObject {
                    }
                    
                    // Create a Firestore document representing the user
-                   let userDocument = UserDocument(userId: user.userId, email: user.email ?? "",isMatch: false,ScannedQr: user.scannedQr ?? [""])
+                   let userDocument = UserDocument(userId: user.userId, userName: "Chris", email: user.email ?? "",isMatch: false,dateCreated: Date(), ScannedQr: user.scannedQr ?? [""])
                    
                    // Add the user document to the "roster" collection in Firestore
                    let db = Firestore.firestore()
