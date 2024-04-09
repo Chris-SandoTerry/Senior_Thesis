@@ -40,7 +40,6 @@
 		0DCE52612B8FB614000091D2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE52602B8FB614000091D2 /* ProfileView.swift */; };
 		0DCE52642B8FBB8B000091D2 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE52632B8FBB8B000091D2 /* UserManager.swift */; };
 		0DF0ABC72AD99D48005118D6 /* Senior_ThesisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABC62AD99D48005118D6 /* Senior_ThesisApp.swift */; };
-		0DF0ABC92AD99D48005118D6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABC82AD99D48005118D6 /* ContentView.swift */; };
 		0DF0ABCB2AD99D49005118D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DF0ABCA2AD99D49005118D6 /* Assets.xcassets */; };
 		0DF0ABCE2AD99D49005118D6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DF0ABCD2AD99D49005118D6 /* Preview Assets.xcassets */; };
 		0DF0ABD82AD99D49005118D6 /* Senior_ThesisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABD72AD99D49005118D6 /* Senior_ThesisTests.swift */; };
@@ -49,8 +48,6 @@
 		0DF0ABF12AD99EC0005118D6 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABF02AD99EC0005118D6 /* SignUp.swift */; };
 		0DF0ABF32AD99EF1005118D6 /* SignInEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABF22AD99EF1005118D6 /* SignInEmailView.swift */; };
 		0DF0ABF92AD9A013005118D6 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABF82AD9A013005118D6 /* CameraView.swift */; };
-		0DF0ABFB2AD9A12F005118D6 /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABFA2AD9A12F005118D6 /* PageModel.swift */; };
-		0DF0ABFD2AD9A15C005118D6 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0ABFC2AD9A15C005118D6 /* PageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,7 +93,6 @@
 		0DCE52632B8FBB8B000091D2 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		0DF0ABC32AD99D48005118D6 /* Senior_Thesis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Senior_Thesis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF0ABC62AD99D48005118D6 /* Senior_ThesisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Senior_ThesisApp.swift; sourceTree = "<group>"; };
-		0DF0ABC82AD99D48005118D6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0DF0ABCA2AD99D49005118D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DF0ABCD2AD99D49005118D6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0DF0ABD32AD99D49005118D6 /* Senior_ThesisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Senior_ThesisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,8 +103,6 @@
 		0DF0ABF02AD99EC0005118D6 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		0DF0ABF22AD99EF1005118D6 /* SignInEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailView.swift; sourceTree = "<group>"; };
 		0DF0ABF82AD9A013005118D6 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
-		0DF0ABFA2AD9A12F005118D6 /* PageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
-		0DF0ABFC2AD9A15C005118D6 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +180,6 @@
 		0DCE52542B8FB1F8000091D2 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				0DF0ABC82AD99D48005118D6 /* ContentView.swift */,
 				0DCE523D2B863A77000091D2 /* RootView.swift */,
 				0D5802502B1525BB00CD9BFD /* RegisterView.swift */,
 				0DCE52582B8FB4E1000091D2 /* Authentication */,
@@ -267,8 +260,6 @@
 			children = (
 				0DCE524A2B8E5B52000091D2 /* Senior-Thesis-Info.plist */,
 				0DF0ABC62AD99D48005118D6 /* Senior_ThesisApp.swift */,
-				0DF0ABFA2AD9A12F005118D6 /* PageModel.swift */,
-				0DF0ABFC2AD9A15C005118D6 /* PageView.swift */,
 				0DCE52622B8FBB7C000091D2 /* Firestore */,
 				0DCE52542B8FB1F8000091D2 /* Core */,
 				0DCE524D2B8E6059000091D2 /* utilities */,
@@ -458,7 +449,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DF0ABFB2AD9A12F005118D6 /* PageModel.swift in Sources */,
 				0D5802512B1525BC00CD9BFD /* RegisterView.swift in Sources */,
 				0DCE52642B8FBB8B000091D2 /* UserManager.swift in Sources */,
 				0DF0ABF32AD99EF1005118D6 /* SignInEmailView.swift in Sources */,
@@ -477,9 +467,7 @@
 				0DCE523E2B863A78000091D2 /* RootView.swift in Sources */,
 				0DCE524F2B8E6080000091D2 /* Utilities.swift in Sources */,
 				0DCE525A2B8FB526000091D2 /* SignUpViewModel.swift in Sources */,
-				0DF0ABC92AD99D48005118D6 /* ContentView.swift in Sources */,
 				0DCE52512B8E7148000091D2 /* SignInGoogleHelper.swift in Sources */,
-				0DF0ABFD2AD9A15C005118D6 /* PageView.swift in Sources */,
 				0DF0ABC72AD99D48005118D6 /* Senior_ThesisApp.swift in Sources */,
 				0D89B2C92B851E4300933136 /* AuthentaticationManager.swift in Sources */,
 				0D7851BE2B5AE7BF002CF44B /* QrCodeImage.swift in Sources */,
