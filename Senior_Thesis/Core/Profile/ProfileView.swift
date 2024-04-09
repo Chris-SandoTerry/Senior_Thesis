@@ -126,10 +126,10 @@ struct ProfileView: View {
                 Section(header: Text("Professor")) {
                               if let user = viewModel.user, let name = user.userName {
                                   Text("\(name.capitalized)")
-                                      .foregroundColor(.blue) // Adjust the color as needed
+                                      .foregroundColor(.blue)
                               } else {
                                   Text("No professor data available")
-                                      .foregroundColor(.red) // Adjust the color as needed
+                                      .foregroundColor(.red) 
                               }
                           }
                     
