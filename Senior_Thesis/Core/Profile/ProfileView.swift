@@ -129,7 +129,7 @@ struct ProfileView: View {
                                       .foregroundColor(.blue)
                               } else {
                                   Text("No professor data available")
-                                      .foregroundColor(.red) 
+                                      .foregroundColor(.red)
                               }
                           }
                     
@@ -197,4 +197,5 @@ struct ProfileView: View {
         }
     }
     
+
 
