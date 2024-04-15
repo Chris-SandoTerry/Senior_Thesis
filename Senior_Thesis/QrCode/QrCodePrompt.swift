@@ -14,6 +14,8 @@ struct QrCodePrompt: View {
 
     var body: some View {
         VStack {
+            
+            
             if let qrCodeImage = generateQRCode(from: qrCodeContent) {
                    Image(uiImage: qrCodeImage)
                        .renderingMode(.original)
