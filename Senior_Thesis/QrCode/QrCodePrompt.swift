@@ -8,10 +8,24 @@
 import Foundation
 import SwiftUI
 
+@MainActor
+final class QrCodePromptViewModel: ObservableObject {
+    
+    @Published private(set) var user: DBUser? = nil
+    @Published private(set) var roster: UserDocument?  = nil
+    
+    
+    func loadcurrentUser() async throws {
+        let authDataResult = try  AuthentaticationManager.shared.getAuthenticatedUser()
+        self.user = try await UserManager.shared.getUser(userId: authDataResult.uid)
+    }
+    
+}
 
 struct QrCodePrompt: View {
     @State private var qrCodeContent = "First Qr Code5"
-
+    @StateObject private var viewModel = QrCodePromptViewModel()
+    
     var body: some View {
         VStack {
             
@@ -29,6 +43,18 @@ struct QrCodePrompt: View {
             Button("Generate New QR Code") {
                 
                 qrCodeContent = generateRandomString()
+                //make the thing equal here
+                if var user = viewModel.user
+                {
+                    var array: [String] = []
+                    
+                    array.append(qrCodeContent)
+                    
+                    user.qrCode = array
+                    
+                    
+                }
+                
             }
         }
         .padding()
