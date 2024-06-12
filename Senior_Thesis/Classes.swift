@@ -78,14 +78,14 @@ final class ClassesViewModel: ObservableObject {
                     //try await loadRoster()
                 } catch {
                     print("Error adding user to roster: \(error)")
-                    // Handle error as needed, e.g., show an alert to the user
+                    
                 }
             }
         }
     func addUserToRoster() {
            Task {
                do {
-                   // Fetch the current user
+                   
                    guard let user = self.user else {
                        return
                    }
