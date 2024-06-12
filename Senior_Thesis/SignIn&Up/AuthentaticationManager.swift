@@ -1,10 +1,3 @@
-//
-//  AuthentaticationManager.swift
-//  Senior_Thesis
-//
-//  Created by Christopher Sandoval Terry on 2/20/24.
-//
-
 import Foundation
 import FirebaseAuth
 import UIKit
@@ -13,7 +6,6 @@ struct AuthDataResultModel
 {
     let uid: String
     let email: String?
-    let photoUrl: String? 
     let qrCode: String?
     let userName: String?
     
@@ -21,7 +13,6 @@ struct AuthDataResultModel
     {
         self.uid = user.uid
         self.email = user.email
-        self.photoUrl = user.photoURL?.absoluteString
         self.qrCode = user.photoURL?.absoluteString
         self.userName = user.displayName
         
@@ -109,7 +100,7 @@ extension AuthentaticationManager{
             throw URLError(.badServerResponse)
         }
         
-        try await user.updateEmail(to: email)
+        try await user.sendEmailVerification(beforeUpdatingEmail: email) //user.updateEmail(to: email) <-- this version commented out is old
     }
     
     @discardableResult

@@ -1,21 +1,13 @@
-//
-//  UserManager.swift
-//  Senior_Thesis
-//
-//  Created by Christopher Sandoval Terry on 2/28/24.
-//
-
 import Foundation
 import Firebase
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-
+///What we wanna see in the user profile
 struct DBUser: Codable {
     let userId: String
     let email: String?
     let userName: String?
-    let photoUrl: String?
     let dateCreated: Date?
     let isProfessors:[String]?
     let isStudents:[String]?
@@ -29,7 +21,6 @@ struct DBUser: Codable {
     init(auth: AuthDataResultModel) {
         self.userId = auth.uid
         self.email = auth.email
-        self.photoUrl = auth.photoUrl
         self.dateCreated = Date()
         self.isTeacher = false
         self.isStudent = false
@@ -55,7 +46,6 @@ struct DBUser: Codable {
     ) {
         self.userId = userId
         self.email = email
-        self.photoUrl = photoUrl
         self.dateCreated = dateCreated
         self.isTeacher = isTeacher
         self.isStudent = isStudent
@@ -69,7 +59,6 @@ struct DBUser: Codable {
     enum CodingKeys: String, CodingKey {
         case userId = "user_id"
         case email = "email"
-        case photoUrl = "photo_url"
         case dateCreated = "data_created"
         case isTeacher = "is_teacher"
         case isStudent = "is_student"
@@ -85,7 +74,6 @@ struct DBUser: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.userId = try container.decode(String.self, forKey: .userId)
         self.email = try container.decodeIfPresent(String.self, forKey: .email)
-        self.photoUrl = try container.decodeIfPresent(String.self, forKey: .photoUrl)
         self.dateCreated = try container.decodeIfPresent(Date.self, forKey: .dateCreated)
         self.isTeacher = try container.decodeIfPresent(Bool.self, forKey: .isTeacher)
         self.isStudent = try container.decodeIfPresent(Bool.self, forKey: .isStudent)
@@ -102,7 +90,6 @@ struct DBUser: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(self.userId, forKey: .userId)
         try container.encodeIfPresent(self.email, forKey: .email)
-        try container.encodeIfPresent(self.photoUrl, forKey: .photoUrl)
         try container.encodeIfPresent(self.dateCreated, forKey: .dateCreated)
         try container.encodeIfPresent(self.isTeacher, forKey: .isTeacher)
         try container.encodeIfPresent(self.isStudent, forKey: .isStudent)
@@ -130,13 +117,11 @@ final class UserManager {
     
     private let encoder: Firestore.Encoder = {
         let encoder = Firestore.Encoder()
-//        encoder.keyEncodingStrategy = .convertToSnakeCase
         return encoder
     }()
     
     private let decoder: Firestore.Decoder = {
         let decoder = Firestore.Decoder()
-//        decoder.keyDecodingStrategy = .convertFromSnakeCase
         return decoder
     }()
     
@@ -146,51 +131,10 @@ final class UserManager {
       try  userDocument(userId: user.userId).setData(from: user, merge: false)
    }
     
-
-//
-//    func createNewUser(auth: AuthDataResultModel) async throws {
-//        var userData: [String:Any] = [
-//            "user_id" : auth.uid,
-//            "date_created": Timestamp(),
-//            
-//        ]
-//        if let email = auth.email{
-//            userData["email"] = email
-//        }
-//        if let PhotoUrl = auth.photoUrl {
-//            userData["photo_"] = PhotoUrl
-//        }
-//        
-//        try await userDocument(userId: auth.uid).setData(userData, merge: false)
-//    }
-    
-    
     func getUser(userId: String) async throws -> DBUser {
          try await userDocument(userId: userId).getDocument(as: DBUser.self)
     }
-    
-//    func getUser(userId: String) async throws -> DBUser {
-//        
-//        let snapshot = try await userDocument(userId: userId).getDocument()
-//        
-//        guard let data = snapshot.data(), let userId = data["user_id"] as? String else {
-//            throw URLError(.badServerResponse)
-//        }
-//        
-//        let email = data["email"] as? String
-//        let photoUrl = data["photo_url"] as? String
-//        let dataCreated = data["date_created"] as? Date
-//        
-//        
-//        return DBUser(userId: userId, email: email, photoUrl: photoUrl, dataCreated: dataCreated)
-//    }
-    
-    
-//    func updatedUserTeacherStatus(user: DBUser) async throws{
-//        try userDocument(userId: user.userId).setData(from: user, merge: true)
-//    }
-//    
-    
+
     func updateUserTeacherStatus(userId: String,isTeacher: Bool) async throws {
         let data: [String:Any] = [
             DBUser.CodingKeys.isTeacher.rawValue : isTeacher
@@ -238,23 +182,7 @@ final class UserManager {
         try  await userDocument(userId: userId).updateData(data)
     }
     
-//    func addStudentRoster(userId:String, student: Professor)async throws {
-//        guard let data = try? encoder.encode(student) else {
-//            throw URLError(.badURL)
-//        }
-//        let dict: [String:Any] = [
-//            DBUser.CodingKeys.roster.rawValue : data,
-//        ]
-//        try  await userDocument(userId: userId).updateData(dict)
-//    }
-//    
-//    func removeStudentRoster(userId:String)async throws {
-//        let data: [String:Any?] = [
-//            DBUser.CodingKeys.scannedQr.rawValue : nil
-//        ]
-//        try  await userDocument(userId: userId).updateData(data as [AnyHashable : Any])
-//    }
-    
+
         func getRosterData() async throws -> [UserDocument] {
                 let db = Firestore.firestore()
                 let snapshot = try await db.collection("roster").getDocuments()

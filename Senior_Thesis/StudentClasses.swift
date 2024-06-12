@@ -21,7 +21,7 @@ struct StudentClasses: View {
             NavigationView {
                 List{
                     HStack{
-                        EditButton()
+                        EditButton() 
                         
                         Image(systemName: "plus")
                             .frame(maxWidth: .infinity, alignment: .bottomTrailing)
