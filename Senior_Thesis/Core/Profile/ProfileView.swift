@@ -1,10 +1,3 @@
-//
-//  ProfileView.swift
-//  Senior_Thesis
-//
-//  Created by Christopher Sandoval Terry on 2/28/24.
-//
-
 import SwiftUI
 
 @MainActor

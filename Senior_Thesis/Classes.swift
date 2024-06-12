@@ -1,10 +1,3 @@
-//
-//  Classes.swift
-//  Senior_Thesis
-//
-//  Created by Christopher Sandoval Terry on 1/17/24.
-//
-
 import SwiftUI
 import Firebase
 
